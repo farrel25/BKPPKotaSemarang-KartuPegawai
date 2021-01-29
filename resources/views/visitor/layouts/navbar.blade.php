@@ -14,7 +14,7 @@
             <ul>
                 <li class="btn-masuk"><a href="#">Masuk</a></li>
                 <li class="btn-daftar"><a href="#">Daftar</a></li>
-                <li class="drop-down ml-auto">
+                <li class="drop-down ml-auto akun">
                     <a href="#">Hai, Nama</a>
                     <ul>
                         <li><a href="#">Dashboard</a></li>
