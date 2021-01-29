@@ -2,71 +2,48 @@
 
 @section('content')
 <!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex align-items-center">
+<div class="jumbotron jumbotron-fluid bg-header">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-                <h1 data-aos="fade-up">Grow your business with Vesperr</h1>
-                <h2 data-aos="fade-up" data-aos-delay="400">
-                    We are team of talanted designers making websites with Bootstrap
-                </h2>
-                <div data-aos="fade-up" data-aos-delay="800">
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                </div>
-            </div>
-            <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
-                <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" />
+        <div class="row ">
+            <div class="col-lg-6 col-11 m-auto bg-glass">
+                <h1 class="display-4">KARTU PEGAWAI</h1>
+                <p class="lead ml-2 mr-2 ml-lg-5 mr-lg-5 d-lg-block">Lorem ipsum dolor sit amet, consectetur adipiscing
+                    elit.
+                    Nisi,
+                    gravida sit
+                    quis
+                    lacus. Et porta ut duis etiam nullam ac. Id posuere ut pretium justo ultrices eu.
+                    Tempor elit lacinia ut ultrices enim nisl felis enim, nunc.</p>
+                <a class="btn btn-light" href="#" role="button">Selengkapnya</a>
             </div>
         </div>
+
     </div>
-</section>
+</div>
 <!-- End Hero -->
 
 <main id="main">
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients clients">
+    <section id="service">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-1.png" class="img-fluid" alt="" data-aos="zoom-in" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="100" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-3.png" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="200" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-4.png" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="300" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-5.png" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="400" />
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <img src="assets/img/clients/client-6.png" class="img-fluid" alt="" data-aos="zoom-in"
-                        data-aos-delay="500" />
+            <div class="row justify-content-center">
+                <div class="col-lg-10 info-services">
+                    <div class="row">
+                        <div class="col-lg">
+                            asdd
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End Clients Section -->
 
-    <!-- ======= About Us Section ======= -->
+
+    {{-- <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title" data-aos="fade-up">
                 <h2>About Us</h2>
             </div>
-
             <div class="row content">
                 <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
                     <p>
@@ -955,7 +932,7 @@
             </div>
         </div>
     </section>
-    <!-- End Contact Section -->
+    <!-- End Contact Section --> --}}
 </main>
 <!-- End #main -->
 @endsection
