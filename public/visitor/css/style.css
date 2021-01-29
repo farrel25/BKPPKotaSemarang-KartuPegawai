@@ -1638,7 +1638,7 @@ section {
 .bg-header{
     background-image: url("/visitor/images/bg-1.png");
     background-size: cover;
-    height: 600px;
+    height: 640px;
     text-align: center;
     padding-top: 150px;
     position: relative;
@@ -1663,12 +1663,13 @@ section {
 .bg-header h1  {
     color: white;
     font-weight: 600;
-    font-size: 48px;
+    font-size: 32px;
     text-shadow: 1px 1px 1px #373139;
 
 }
 .bg-header p {
     color: white;
+    font-size: 14px;
 }
 
 .bg-glass{
@@ -1695,6 +1696,66 @@ section {
 }
 
 .info-services{
-    background-color: #fff;
+    position: relative;
+    background-image: url("/visitor/images/bg-services.png");
+    border-radius: 20px;
+    padding: 30px;
     color: #111;
+    margin-top: -80px;
 }
+
+.info-services img{
+    height: 40px;
+}
+
+.info-services h3 {
+    font-weight: 600;
+}
+
+.bg-activity{
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    padding: 50px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+}
+
+.bg-activity h3{
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+
+.nav-menu .btn-masuk a {
+    background: #FBB448;
+    color: #fff;
+    border: 1px solid #FBB448;
+    border-radius: 20px;
+    margin: 0 0 0 20px;
+    padding: 5px 30px;
+}
+
+.nav-menu .btn-masuk a:hover {
+    background: #ac7b32;
+    border: 1px solid #ac7b32;
+    color: #fff;
+}
+
+.nav-menu .btn-daftar a {
+    background: #fff;
+    color: #373139;
+    border: 1px solid #373139;
+    border-radius: 20px;
+    margin: 0 0 0 20px;
+    padding: 5px 20px;
+}
+
+.nav-menu .btn-daftar a:hover {
+    background: #FBB448;
+    color: #fff;
+    border: 1px solid #FBB448;
+}
+
+.btn-activity{
+
+}
+
