@@ -3,7 +3,7 @@
     <div class="container d-flex align-items-center">
         <div class="logo mr-auto">
             <h1 class="text-light">
-                <a href="index.html">
+                <a href="{{ route('home') }}">
                     <img style=" height: 30px;" src="{{ asset('/visitor/images') }}/Lambang_Kota_Semarang.png"
                         class="img-fluid " alt="" />
                     <span style="font-weight: 600" class="ml-1"> BKPP KOTA SEMARANG</span>
@@ -14,15 +14,25 @@
             <ul>
                 <li class="btn-masuk"><a href="#">Masuk</a></li>
                 <li class="btn-daftar"><a href="#">Daftar</a></li>
+                {{-- @auth --}}
                 <li class="drop-down ml-auto akun">
-                    <a href="#">Hai, Nama</a>
+                    <a>Hai, Nama</a>
+                    {{-- <a>Hai, {{ Auth::user()->name }}</a> --}}
                     <ul>
-                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li>
                             <a href="#">Logout</a>
+                            {{-- <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form> --}}
                         </li>
                     </ul>
                 </li>
+                {{-- @endauth --}}
             </ul>
         </nav>
         <!-- .nav-menu -->

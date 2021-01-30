@@ -26,7 +26,7 @@ Auth::routes();
 // dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.main.index');
-});
+})->name('dashboard');
 
 
 // Landing Page

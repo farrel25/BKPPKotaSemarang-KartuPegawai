@@ -8,11 +8,11 @@
             </div>
             <div class="col-lg-6 text-lg-left text-center h-100 d-block footer-info">
                 <h3>BKPP Kota Semarang</h3>
-                <p class="text-justify mr-lg-5">Cras fermentum odio eu feugiat. Justo eget magna fermentum iaculis eu
-                    non
-                    diam
-                    phasellus. Scelerisque
-                    felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.
+                <p class="text-justify mr-lg-5">
+                    sarana media pelayanan informasi kepegawaian bagi para pengelola
+                    kepegawaian dan masyarakat pemerhati kepegawaian di lingkungan Pemerintah Kota Semarang yang
+                    bertujuan untuk memberikan pelayanan informasi kepada para pengelola kepegawaian Pemerintah Kota
+                    Semarang dan masyarakat luas melalui media elektronik.
                 </p>
                 <span class="social-media">
                     <a href="#"><i class="fab fa-instagram fa-2x mr-2"></i></a>
@@ -21,7 +21,7 @@
                     <a href="#"><i class="fab fa-youtube fa-2x mr-2"></i></a>
                 </span>
             </div>
-            <div class=" col-lg-4">
+            <div class="col-lg-4 footer-aduan">
                 <form>
                     <div class="form-group mb-3">
                         <label for="#" class="mb-1">Aduan</label>
