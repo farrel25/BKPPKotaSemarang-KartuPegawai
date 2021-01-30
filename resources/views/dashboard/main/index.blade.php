@@ -1,6 +1,8 @@
 @extends('dashboard.layouts.master', ['title' => 'KarPeg - Dashboard'])
 
 @section('content')
+
+<!-- Start Dashboard title menu -->
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -8,10 +10,9 @@
                 <i class="pe-7s-car icon-gradient bg-mean-fruit"> </i>
             </div>
             <div>
-                Analytics Dashboard
+                Dashboard
                 <div class="page-title-subheading">
-                    This is an example dashboard created using build-in
-                    elements and components.
+                    Rangkuman data pegawai
                 </div>
             </div>
         </div>
@@ -66,7 +67,10 @@
         </div>
     </div>
 </div>
-<div class="row">
+<!-- End Dashboard title menu -->
+
+<!-- Start Dashboard content -->
+{{-- <div class="row">
     <div class="col-md-6 col-xl-4">
         <div class="card mb-3 widget-content bg-midnight-bloom">
             <div class="widget-content-wrapper text-white">
@@ -130,6 +134,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 col-lg-6">
         <div class="mb-3 card">
@@ -450,6 +455,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-6 col-xl-4">
         <div class="card mb-3 widget-content">
@@ -526,6 +532,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -698,6 +705,7 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-6 col-lg-3">
         <div class="card-shadow-danger mb-3 widget-chart widget-chart2 text-left card">
@@ -803,5 +811,6 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<!-- End Dashboard content -->
 @endsection

@@ -4,8 +4,8 @@
 
 <div class="jumbotron jumbotron-fluid bg-header">
     <div class="container">
-        <div class="row ">
-            <div class="col-lg-6 col-11 m-auto bg-glass">
+        <div class="row">
+            <div class="col-lg-6 col-11 m-auto bg-glass" data-aos="zoom-in" data-aos-duration="1500">
                 <h1 class="display-4">KARTU PEGAWAI</h1>
                 <p class="lead ml-2 mr-2 ml-lg-5 mr-lg-5 d-lg-block">
                     Melayani pengajuan pembuatan Kartu Pegawai baru maupun penggantian kartu pegawai karena hilang bagi
@@ -44,10 +44,14 @@
 
 <div class="container mt-5 mb-5">
     <div class="row">
-        <h1 class="mb-5 text-center" style="font-weight: 700; color: #373139;">-Persyaratan dan Pembuatan-</h1>
+        <h1 class="mb-5 text-center" style="font-weight: 700; color: #373139;" data-aos="fade-up"
+            data-aos-duration="2000">
+            -Persyaratan dan Pembuatan-
+        </h1>
     </div>
     <div class="row justify-content-center">
-        <div class="col-lg-4 col-11 bg-activity mr-lg-3 mb-3">
+        <div class="col-lg-4 col-11 bg-activity mr-lg-3 mb-3" data-aos="fade-right" data-aos-duration="2000"
+            data-aos-delay="500">
             <h3>Pengajuan Kartu Pegawai</h3>
             <p>1. Fotokopi SK CPNS dilegalisir</p>
             <p>2. Fotokopi SAH SK PNS dilegalisir</p>
@@ -57,7 +61,8 @@
                 data-whatever="@mdo">Buat</a>
 
         </div>
-        <div class="col-lg-4 col-11 bg-activity ml-lg-3 mb-3">
+        <div class="col-lg-4 col-11 bg-activity ml-lg-3 mb-3" data-aos="fade-left" data-aos-duration="2000"
+            data-aos-delay="500">
             <h3>Penggantian Karena Hilang</h3>
             <p>1. Fotokopi SK CPNS dilegalisir</p>
             <p>2. Fotokopi SAH SK PNS dilegalisir</p>

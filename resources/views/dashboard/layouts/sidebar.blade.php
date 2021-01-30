@@ -46,7 +46,7 @@
                         Kembali ke Beranda
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Admin</li>
+                <li class="app-sidebar__heading">Kartu Pegawai</li>
                 <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-rocket"></i>

@@ -12,7 +12,7 @@
         </div>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="btn-masuk"><a href="#">Masuk</a></li>
+                <li class="btn-masuk"><a href="{{ route('login') }}">Masuk</a></li>
                 <li class="btn-daftar"><a href="#">Daftar</a></li>
                 {{-- @auth --}}
                 <li class="drop-down ml-auto akun">

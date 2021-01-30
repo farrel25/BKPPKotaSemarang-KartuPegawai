@@ -33,7 +33,7 @@
     <link rel="stylesheet" href="{{ asset('/visitor/vendor') }}/venobox/venobox.css" />
     <link rel="stylesheet" href="{{ asset('/visitor/vendor') }}/aos/aos.css" />
 
-    <!-- Template Main CSS File -->
+    <!-- Main CSS File -->
     <link rel="stylesheet" href="{{ asset('/visitor') }}/css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
@@ -71,7 +71,7 @@
     <script src="{{ asset('/visitor/vendor') }}/venobox/venobox.min.js"></script>
     <script src="{{ asset('/visitor/vendor') }}/aos/aos.js"></script>
 
-    <!-- Template Main JS File -->
+    <!-- Main JS File -->
     <script src="{{ asset('/visitor') }}/js/main.js"></script>
 </body>
 
