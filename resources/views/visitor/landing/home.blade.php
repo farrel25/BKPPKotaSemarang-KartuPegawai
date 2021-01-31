@@ -23,12 +23,12 @@
             <div class="row">
                 <div class=" col-lg">
                     <img src="{{ asset('/visitor/images') }}/service-1.png" class="float-left mr-2">
-                    <h3> Layanan 24 jam</h3>
+                    <h3> 24 jam</h3>
                     <p> Layanan pengajuan pembuatan kartu pegawai tersedia 24 jam</p>
                 </div>
                 <div class=" col-lg">
                     <img src="{{ asset('/visitor/images') }}/service-2.png" class="float-left mr-2">
-                    <h3> Cepat dan tanggap</h3>
+                    <h3> Cepat</h3>
                     <p> Pembuatan kartu pegawai diproses secepat mungkin dan dapat diambil dengan segera</p>
                 </div>
                 <div class=" col-lg">

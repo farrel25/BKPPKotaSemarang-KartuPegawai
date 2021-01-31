@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Proposal extends Model
 {
-    public function Employee()
+    public function user()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function Report()
+    public function report()
     {
         return $this->belongsTo(Report::class);
     }

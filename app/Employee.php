@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    public function Proposals()
+    public function user()
     {
-        return $this->hasMany(Proposal::class);
+        return $this->hasOne(User::class, 'employee_id');
     }
 }

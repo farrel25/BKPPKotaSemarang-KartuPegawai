@@ -15,6 +15,9 @@ class CreateReportsTable extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('proposal_id');
+            $table->date('tanggal_laporan')->nullable();
+            $table->string('nomor_laporan', 255)->nullable();
             $table->timestamps();
         });
     }

@@ -15,6 +15,11 @@ class CreateDashboardSubMenusTable extends Migration
     {
         Schema::create('dashboard_sub_menus', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('dashboard_menu_id');
+            $table->string('name');
+            $table->string('url_path');
+            $table->string('icon');
+            $table->boolean('is_active');
             $table->timestamps();
         });
     }

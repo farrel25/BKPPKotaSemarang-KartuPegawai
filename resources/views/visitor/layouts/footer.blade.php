@@ -32,7 +32,7 @@
                             <input type="text" class="form-control mb-3" id="#" placeholder="Pengirim">
                         </div>
                         <div class=" col-lg-3 ">
-                            <button type="submit" class="btn btn-warning btn-responsive btn-blue ">Submit</button>
+                            <button type="submit" class="btn btn-warning btn-responsive btn-blue ">Kirim</button>
                         </div>
                     </div>
                 </form>
