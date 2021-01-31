@@ -48,3 +48,9 @@ Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
 
 // Pegawai
 Route::get('/dashboard/pegawai/pengajuan-pegawai', 'EmployeeController@index')->name('pegawai.pengajuan-pegawai');
+
+// Menu
+Route::get('/dashboard/dashboard-menu', 'DashboardMenuController@index')->name('manajemen-menu.menu');
+
+// SubMenu
+Route::get('/dashboard/dashboard-sub-menu', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');

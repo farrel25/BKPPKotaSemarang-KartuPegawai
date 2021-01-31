@@ -67,13 +67,15 @@
                 </li>
                 <li class="app-sidebar__heading">Manajemen Menu</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('manajemen-menu.menu') }}"
+                        class="{{ request()->is('/dashboard/dashboard-menu') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-photo-gallery"></i>
                         Dashboard Menu
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('manajemen-menu.sub-menu') }}"
+                        class="{{ request()->is('/dashboard/dashboard-sub-menu') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-albums"></i>
                         Dashboard Sub Menu
                     </a>
