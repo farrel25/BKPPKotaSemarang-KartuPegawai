@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
-// dashboard
+// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard.main.index');
 })->name('dashboard');
@@ -31,3 +31,20 @@ Route::get('/dashboard', function () {
 
 // Landing Page
 Route::get('/', 'HomeController@index')->name('home');
+
+// User
+Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
+
+    // Pengguna
+    Route::prefix('/pengguna')->group(function () {
+        Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
+    });
+
+    // RoleDanHakAkses
+    Route::prefix('/role-dan-hak-akses')->group(function () {
+        Route::get('', 'UserRoleAccessController@index')->name('manajemen-pengguna.role-dan-hak-akses');
+    });
+});
+
+// Pegawai
+Route::get('/dashboard/pegawai/pengajuan-pegawai', 'EmployeeController@index')->name('pegawai.pengajuan-pegawai');

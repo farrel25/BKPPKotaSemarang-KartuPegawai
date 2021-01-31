@@ -9022,10 +9022,15 @@ button,
     transition: width 0.2s;
 }
 .app-header__logo .logo-src {
-    height: 23px;
-    width: 97px;
-    background: url(assets/images/logo-inverse.png);
+    height: 24px;
 }
+
+.app-header__logo .logo-src p{
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: -4px;
+}
+
 .app-header__menu,
 .app-header__mobile-menu {
     display: none;

@@ -21,6 +21,15 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet" />
+    <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/style.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/pe-icon-7-stroke.css" rel="stylesheet">
+    <link href="{{ asset('/admin') }}/css/helper.css" rel="stylesheet">
+
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
 
 </head>
 
@@ -32,6 +41,10 @@
             <div class="app-main__outer">
                 <div class="app-main__inner">
                     @yield('content')
+                    <div class="row">
+                        <div class="scrollbar-container">
+                        </div>
+                    </div>
                 </div>
                 @include('dashboard.layouts.footer')
             </div>

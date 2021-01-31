@@ -1,6 +1,10 @@
 <div class="app-header header-shadow">
     <div class="app-header__logo">
-        <div class="logo-src"></div>
+        <img class="logo-src" src="{{ asset('/images') }}/Lambang_Kota_Semarang.png">
+        </img>
+        <div class=" logo-src ml-2">
+            <p>ADMIN BKPP</p>
+        </div>
         <div class="header__pane ml-auto">
             <div>
                 <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -84,15 +88,12 @@
                                 <button type="button" tabindex="0" class="dropdown-item">
                                     Settings
                                 </button>
-                                <h6 tabindex="-1" class="dropdown-header">
-                                    Header
-                                </h6>
                                 <button type="button" tabindex="0" class="dropdown-item">
-                                    Actions
+                                    Notification
                                 </button>
                                 <div tabindex="-1" class="dropdown-divider"></div>
                                 <button type="button" tabindex="0" class="dropdown-item">
-                                    Dividers
+                                    Log Out
                                 </button>
                             </div>
                         </div>

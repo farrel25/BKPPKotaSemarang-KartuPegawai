@@ -35,66 +35,69 @@
             <ul class="vertical-nav-menu">
                 <li class="app-sidebar__heading">Menu Utama</li>
                 <li>
-                    <a href="{{ route('dashboard') }}" class="mm-active">
+                    <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-rocket"></i>
                         Dashboard
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('home') }}">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-home"></i>
                         Kembali ke Beranda
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Kartu Pegawai</li>
                 <li>
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-download"></i>
                         Pengajuan Kartu Pegawai
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-print"></i>
                         Kartu dicetak
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-id"></i>
                         Kartu diambil
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Manajemen Menu</li>
                 <li>
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-photo-gallery"></i>
                         Dashboard Menu
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                        <i class="metismenu-icon pe-7s-albums"></i>
                         Dashboard Sub Menu
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Manajemen Pengguna</li>
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                    <a href="{{ route('manajemen-pengguna.pengguna') }}"
+                        class="{{ request()->is('dashboard/manajemen-pengguna/pengguna') ? 'mm-active' : '' }}">
+                        <i class=" metismenu-icon pe-7s-user"></i>
                         Akun Pengguna
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                    <a href="{{ route('manajemen-pengguna.role-dan-hak-akses') }}"
+                        class="{{ request()->is('dashboard/manajemen-pengguna/role-dan-hak-akses') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-network"></i>
                         Role dan Hak Akses
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Pegawai</li>
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
+                    <a href="{{ route('pegawai.pengajuan-pegawai') }}"
+                        class="{{ request()->is('dashboard/pegawai/pengajuan-pegawai') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-diamond"></i>
                         Pengajuan Kartu Pegawai
                     </a>
                 </li>

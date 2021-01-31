@@ -4,7 +4,7 @@
         <div class="logo mr-auto">
             <h1 class="text-light">
                 <a href="{{ route('home') }}">
-                    <img style=" height: 30px;" src="{{ asset('/visitor/images') }}/Lambang_Kota_Semarang.png"
+                    <img style=" height: 30px;" src="{{ asset('/images') }}/Lambang_Kota_Semarang.png"
                         class="img-fluid " alt="" />
                     <span style="font-weight: 600" class="ml-1"> BKPP KOTA SEMARANG</span>
                 </a>
