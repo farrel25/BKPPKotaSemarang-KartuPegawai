@@ -48,21 +48,17 @@
                 </li>
                 <li class="app-sidebar__heading">Kartu Pegawai</li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('kartu-pegawai.pengajuan-kartu-pegawai') }}"
+                        class="{{ request()->is('dashboard/kartu-pegawai/pengajuan-kartu-pegawai') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-download"></i>
                         Pengajuan Kartu Pegawai
                     </a>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-print"></i>
-                        Kartu dicetak
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
+                    <a href="{{ route('kartu-pegawai.kartu-pegawai-selesai') }}"
+                        class="{{ request()->is('dashboard/kartu-pegawai/kartu-pegawai-selesai') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-id"></i>
-                        Kartu diambil
+                        Kartu Pegawai Selesai
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Manajemen Menu</li>
@@ -97,10 +93,10 @@
                 </li>
                 <li class="app-sidebar__heading">Pegawai</li>
                 <li>
-                    <a href="{{ route('pegawai.pengajuan-pegawai') }}"
-                        class="{{ request()->is('dashboard/pegawai/pengajuan-pegawai') ? 'mm-active' : '' }}">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Pengajuan Kartu Pegawai
+                    <a href="{{ route('pegawai.data-pegawai') }}"
+                        class="{{ request()->is('dashboard/pegawai/data-pegawai') ? 'mm-active' : '' }}">
+                        <i class="metismenu-icon pe-7s-paper-plane"></i>
+                        Data Pegawai
                     </a>
                 </li>
                 {{-- <li class="app-sidebar__heading">UI Components</li>

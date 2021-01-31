@@ -38,6 +38,7 @@ Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
     // Pengguna
     Route::prefix('/pengguna')->group(function () {
         Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
+        Route::get('/tambah-pengguna', 'UserController@create')->name('manajemen-pengguna.tambah-pengguna');
     });
 
     // RoleDanHakAkses
@@ -46,11 +47,20 @@ Route::prefix('/dashboard/manajemen-pengguna')->group(function () {
     });
 });
 
-// Pegawai
-Route::get('/dashboard/pegawai/pengajuan-pegawai', 'EmployeeController@index')->name('pegawai.pengajuan-pegawai');
+
+// Pengajuan Kartu
+Route::get('/dashboard/kartu-pegawai/pengajuan-kartu-pegawai', 'ProposalController@index')->name('kartu-pegawai.pengajuan-kartu-pegawai');
+Route::get('/dashboard/kartu-pegawai/tambah-pengajuan-kartu-pegawai', 'ProposalController@create')->name('kartu-pegawai.tambah-pengajuan-kartu-pegawai');
+Route::get('/dashboard/kartu-pegawai/edit-pengajuan-kartu-pegawai', 'ProposalController@edit')->name('kartu-pegawai.edit-pengajuan-kartu-pegawai');
+
+// Kartu Selesai
+Route::get('/dashboard/kartu-pegawai/kartu-pegawai-selesai', 'HistoryEmployeeCardController@index')->name('kartu-pegawai.kartu-pegawai-selesai');
 
 // Menu
 Route::get('/dashboard/dashboard-menu', 'DashboardMenuController@index')->name('manajemen-menu.menu');
 
 // SubMenu
 Route::get('/dashboard/dashboard-sub-menu', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
+
+// Pegawai
+Route::get('/dashboard/data-pegawai', 'EmployeeController@index')->name('pegawai.data-pegawai');

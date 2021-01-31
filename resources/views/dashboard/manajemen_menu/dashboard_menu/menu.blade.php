@@ -22,11 +22,11 @@
                             <a type="button"
                                 class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                                 href="#"><i class="fas fa-trash-alt"></i> Hapus Menu Terpilih</a>
-                            <a type="button"
+                            <button type="button"
                                 class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                                href="#">+
+                                data-toggle="modal" data-target="#addMenuModal"><i class="fas fa-plus"></i>
                                 Tambah Menu
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -52,28 +52,27 @@
                                                 data-toggle="tooltip" title="Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-bars"></i>
                                             </a>
-                                            <form method="POST" action="#">
-                                                <input type="hidden" name="is_active" value="0">
-                                                <button type="submit" class="btn btn-focus btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Non Aktifkan" data-placement="bottom">
-                                                    <i class="fas fa-lock-open"></i>
-                                                </button>
-                                            </form>
+                                            <button type="submit" class="btn btn-focus btn-sm mr-1"
+                                                data-toggle="tooltip" title="Non Aktifkan Menu" data-placement="bottom">
+                                                <i class="fas fa-lock-open"></i>
+                                            </button>
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Aktifkan " data-placement="bottom">
+                                                title="Aktifkan Menu" data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
                                             </a>
                                             <a href="#" class="btn btn-success btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Tambah Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-plus"></i>
                                             </a>
-                                            <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Edit Menu " data-placement="bottom">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            <span data-toggle="modal" data-target="#editMenuModal">
+                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                                    title="Edit Menu" data-placement="bottom">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </span>
                                             <form id="delete-form" action="#" method="post">
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Hapus Anggota" data-placement="bottom">
+                                                    data-toggle="tooltip" title="Hapus Menu" data-placement="bottom">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>
@@ -97,7 +96,8 @@
             </div>
         </div>
     </div>
-
 </div>
+
+
 
 @endsection

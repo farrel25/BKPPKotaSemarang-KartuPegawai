@@ -14,7 +14,7 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.pengajuan-kartu-pegawai');
     }
 
     /**
@@ -24,7 +24,7 @@ class ProposalController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.tambah-pengajuan-kartu-pegawai');
     }
 
     /**
@@ -35,7 +35,6 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -57,7 +56,7 @@ class ProposalController extends Controller
      */
     public function edit(Proposal $proposal)
     {
-        //
+        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.edit-pengajuan-kartu-pegawai');
     }
 
     /**

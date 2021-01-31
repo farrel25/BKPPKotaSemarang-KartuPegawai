@@ -34,6 +34,7 @@
 </head>
 
 <body>
+    @include('dashboard.layouts.modal')
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         @include('dashboard.layouts.navbar')
         <div class="app-main">

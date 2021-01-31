@@ -20,11 +20,11 @@
                 <div class="main-card mb-3 card">
                     <div class="card-header">Role
                         <div class="btn-actions-pane-right ">
-                            <a type="button"
+                            <button type="button"
                                 class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                                href="#">+
+                                data-toggle="modal" data-target="#addRoleModal"><i class="fas fa-plus"></i>
                                 Tambah Role
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -42,13 +42,15 @@
                                     <td class=" text-center">#</td>
                                     <td class=" text-center">
                                         <div class="d-flex justify-content-center">
-                                            <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Edit Role Dan Hak Akses " data-placement="bottom">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            <span data-toggle="modal" data-target="#editRoleModal">
+                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                                    title="Edit Role" data-placement="bottom">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </span>
                                             <form id="delete-form" action="#" method="post">
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Hapus Anggota" data-placement="bottom">
+                                                    data-toggle="tooltip" title="Hapus Role" data-placement="bottom">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>

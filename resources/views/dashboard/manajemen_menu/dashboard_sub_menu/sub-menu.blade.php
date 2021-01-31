@@ -22,11 +22,11 @@
                             <a type="button"
                                 class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                                 href="#"><i class="fas fa-trash-alt"></i> Hapus Sub Menu Terpilih</a>
-                            <a type="button"
+                            <button type="button"
                                 class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                                href="#">+
+                                data-toggle="modal" data-target="#addSubMenuModal"><i class="fas fa-plus"></i>
                                 Tambah Sub Menu
-                            </a>
+                            </button>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -52,20 +52,23 @@
                                     <td class=" text-center">
                                         <div class="d-flex justify-content-center">
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Aktifkan " data-placement="bottom">
+                                                title="Non Aktifkan Sub Menu" data-placement="bottom">
                                                 <i class="fas fa-unlock"></i>
                                             </a>
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Aktifkan " data-placement="bottom">
+                                                title="Aktifkan Sub Menu" data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
                                             </a>
-                                            <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Edit Menu " data-placement="bottom">
-                                                <i class="fas fa-edit"></i>
-                                            </a>
+                                            <span data-toggle="modal" data-target="#editSubMenuModal">
+                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                                    title="Edit Sub Menu" data-placement="bottom">
+                                                    <i class="fas fa-edit"></i>
+                                                </a>
+                                            </span>
                                             <form id="delete-form" action="#" method="post">
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Hapus Anggota" data-placement="bottom">
+                                                    data-toggle="tooltip" title="Hapus Sub Menu"
+                                                    data-placement="bottom">
                                                     <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </form>

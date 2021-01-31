@@ -14,7 +14,7 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pegawai.pengajuan-pegawai');
+        return view('dashboard.pegawai.data-pegawai');
     }
 
     /**
