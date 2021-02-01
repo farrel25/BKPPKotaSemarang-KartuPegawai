@@ -91,9 +91,15 @@
                                         Notification
                                     </button>
                                     <div tabindex="-1" class="dropdown-divider"></div>
-                                    <button type="button" tabindex="0" class="dropdown-item">
-                                        Log Out
-                                    </button>
+
+                                    <a href="{{ route('logout') }}" tabindex="0" class="dropdown-item"
+                                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+
                                 </div>
                             </div>
                         </div>

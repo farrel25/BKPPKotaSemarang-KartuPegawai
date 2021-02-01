@@ -33,12 +33,60 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Menu Utama</li>
+
+                @php
+                // ambil role id dari user yang sedang login
+                $userRoleId = Auth::user()->roles->pluck('id')->first();
+                // dd($userRoleId);
+
+                // ambil menu yang boleh diakses user berdasarkan role user
+                $menus = \DB::table('dashboard_menus')->select('dashboard_menus.id', 'dashboard_menus.name')
+                ->join('role_has_permissions', 'dashboard_menus.id', '=', 'role_has_permissions.permission_id')
+                ->where('role_has_permissions.role_id', $userRoleId)
+                ->get();
+                @endphp
+
+                @foreach ($menus as $menu)
+                <li class="app-sidebar__heading ">{{ $menu->name }}</li>
+
+                @php
+                $subMenus = DB::table('dashboard_sub_menus')
+                ->select('dashboard_sub_menus.id', 'dashboard_sub_menus.name', 'dashboard_sub_menus.url_path',
+                'dashboard_sub_menus.icon', 'dashboard_sub_menus.is_active')
+                ->join('dashboard_menus', 'dashboard_sub_menus.dashboard_menu_id', '=', 'dashboard_menus.id')
+                ->where('dashboard_sub_menus.dashboard_menu_id', $menu->id)
+                ->get();
+                @endphp
+
+
+                @foreach ($subMenus as $subMenu)
+
+                @php
+                // dd($subMenu);
+                $paths = Request::segments();
+                $path = '';
+                foreach ($paths as $p) {
+                $path .= '/' . $p;
+                }
+                @endphp
+
+                <li>
+                    <a href="{{ $subMenu->url_path }}" class="{{ $path == $subMenu->url_path ? 'mm-active':'' }}">
+                        <i class="{{ $subMenu->icon }}"></i>
+                        {{ $subMenu->name }}
+                    </a>
+                </li>
+
+                @endforeach
+                @endforeach
+
+
+                {{-- <li class="app-sidebar__heading">Menu Utama</li>
                 <li>
                     <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'mm-active' : '' }}">
-                        <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard
-                    </a>
+                <i class="metismenu-icon pe-7s-rocket"></i>
+                Dashboard
+                </a>
                 </li>
                 <li>
                     <a href="{{ route('home') }}">
@@ -49,14 +97,14 @@
                 <li class="app-sidebar__heading">Kartu Pegawai</li>
                 <li>
                     <a href="{{ route('kartu-pegawai.pengajuan-kartu-pegawai') }}"
-                        class="{{ request()->is('dashboard/kartu-pegawai/pengajuan-kartu-pegawai') ? 'mm-active' : '' }}">
+                        class="{{ request()->is('dashboard/kartu-pegawai/pengajuan') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-download"></i>
                         Pengajuan Kartu Pegawai
                     </a>
                 </li>
                 <li>
                     <a href="{{ route('kartu-pegawai.kartu-pegawai-selesai') }}"
-                        class="{{ request()->is('dashboard/kartu-pegawai/kartu-pegawai-selesai') ? 'mm-active' : '' }}">
+                        class="{{ request()->is('dashboard/kartu-pegawai/selesai') ? 'mm-active' : '' }}">
                         <i class="metismenu-icon pe-7s-id"></i>
                         Kartu Pegawai Selesai
                     </a>
@@ -98,57 +146,6 @@
                         <i class="metismenu-icon pe-7s-paper-plane"></i>
                         Data Pegawai
                     </a>
-                </li>
-                {{-- <li class="app-sidebar__heading">UI Components</li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i>
-                        Elements
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="elements-buttons-standard.html">
-                                <i class="metismenu-icon"></i>
-                                Buttons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-dropdowns.html">
-                                <i class="metismenu-icon"> </i>Dropdowns
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-icons.html">
-                                <i class="metismenu-icon"> </i>Icons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-badges-labels.html">
-                                <i class="metismenu-icon"> </i>Badges
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-cards.html">
-                                <i class="metismenu-icon"> </i>Cards
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-list-group.html">
-                                <i class="metismenu-icon"> </i>List Groups
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-navigation.html">
-                                <i class="metismenu-icon"> </i>Navigation Menus
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-utilities.html">
-                                <i class="metismenu-icon"> </i>Utilities
-                            </a>
-                        </li>
-                    </ul>
                 </li> --}}
             </ul>
         </div>
