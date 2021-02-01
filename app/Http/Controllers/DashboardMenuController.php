@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alert;
 use App\DashboardMenu;
 use Illuminate\Http\Request;
 
@@ -88,6 +89,7 @@ class DashboardMenuController extends Controller
     public function destroy(DashboardMenu $dashboardMenu)
     {
         $dashboardMenu->delete();
+        Alert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
         return redirect()->route('manajemen-menu.menu');
     }
 }

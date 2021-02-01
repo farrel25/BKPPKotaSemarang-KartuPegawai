@@ -30,10 +30,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+
 
 </head>
 
 <body>
+    @include('sweetalert::alert')
+
     @include('dashboard.layouts.modal')
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         @include('dashboard.layouts.navbar')
@@ -65,7 +72,10 @@
 
     <!-- Template Main JS File -->
     <script type="text/javascript" src="{{ asset('/admin') }}/js/main.js"></script>
-    @include('sweetalert::alert')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
 </body>
 
 </html>

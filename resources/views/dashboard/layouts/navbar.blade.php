@@ -82,16 +82,19 @@
                                 <div tabindex="-1" role="menu" aria-hidden="true"
                                     class="dropdown-menu dropdown-menu-right">
                                     <button type="button" tabindex="0" class="dropdown-item">
-                                        User Account
+                                        Akun Pengguna
                                     </button>
                                     <button type="button" tabindex="0" class="dropdown-item">
-                                        Settings
+                                        Pemgaturan
                                     </button>
                                     <button type="button" tabindex="0" class="dropdown-item">
-                                        Notification
+                                        Notifikasi
                                     </button>
                                     <div tabindex="-1" class="dropdown-divider"></div>
-
+                                    <a href="{{ route('home') }}" type="button" tabindex="0" class="dropdown-item">
+                                        Kembali Ke Beradna
+                                    </a>
+                                    <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="{{ route('logout') }}" tabindex="0" class="dropdown-item"
                                         onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
@@ -99,7 +102,6 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-
                                 </div>
                             </div>
                         </div>

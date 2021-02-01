@@ -18,6 +18,7 @@
                     <a>Hai, {{ Auth::user()->username }}</a>
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        <li><a href="#">Pemberitahuan Kartu</a></li>
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}
                             <a href="{{ route('logout') }}"

@@ -159,7 +159,7 @@ h6 {
     font-family: "Poppins", sans-serif;
 }
 
-.nav-menu a:hover,
+.nav-menu ul li a:hover,
 .nav-menu .active > a,
 .nav-menu li:hover > a {
     color: #fbb448;
@@ -1733,8 +1733,14 @@ section {
 }
 
 .info-services h3 {
-    font-weight: 600;
+    font-weight: 700;
 }
+
+.info-services p {
+    font-weight: 400;
+    color: #786535;
+}
+
 
 .bg-activity {
     background-color: #f5f5f5;
