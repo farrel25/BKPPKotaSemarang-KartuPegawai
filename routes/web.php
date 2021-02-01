@@ -48,7 +48,13 @@ Route::middleware('auth')->group(function () {
     // Manajemen Menu
     Route::middleware('permission:Manajemen Menu')->prefix('/dashboard/manajemen-menu')->group(function () {
         // Menu
-        Route::get('/dashboard-menu', 'DashboardMenuController@index')->name('manajemen-menu.menu');
+        Route::prefix('/dashboard-menu')->group(function () {
+            Route::get('', 'DashboardMenuController@index')->name('manajemen-menu.menu');
+            // store
+            Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-menu.store');
+            // delete
+            Route::delete('/{dashboard_menu}/hapus', 'DashboardMenuController@destroy')->name('manajemen-menu.destroy');
+        });
 
         // SubMenu
         Route::get('/dashboard-sub-menu', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');

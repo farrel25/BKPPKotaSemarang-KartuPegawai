@@ -37,16 +37,17 @@
                                             name="chk[]">
                                     </th>
                                     <th class=" text-center">No.</th>
-                                    <th class=" text-center">Aksi</th>
-                                    <th class=" text-center">Menu</th>
+                                    <th class="text-center">Aksi</th>
+                                    <th class="text-center">Menu</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($menus as $number => $menu)
                                 <tr>
                                     <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
                                     </td>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">
+                                    <td class=" text-center">{{ ++$number }}</td>
+                                    <td class="text-center">
                                         <div class="d-flex justify-content-center">
                                             <a href="#" class="btn btn-alternate btn-sm mr-1 text-white"
                                                 data-toggle="tooltip" title="Sub Menu " data-placement="bottom">
@@ -70,7 +71,10 @@
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                             </span>
-                                            <form id="delete-form" action="#" method="post">
+                                            <form id="delete-form"
+                                                action="{{ route('manajemen-menu.destroy', $menu->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
                                                     data-toggle="tooltip" title="Hapus Menu" data-placement="bottom">
                                                     <i class="fas fa-trash-alt"></i>
@@ -78,8 +82,9 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class=" text-center">#</td>
+                                    <td class="text-center">{{ $menu->name }}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>

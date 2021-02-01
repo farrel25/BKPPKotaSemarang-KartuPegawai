@@ -10,19 +10,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="form-label" for="#">Menu</label>
-                        <input id="#" type="text" class="form-control" placeholder="Isi Menu ..." />
+
+                <form action="{{ route('manajemen-menu.store') }}" method="post">
+                    @csrf
+
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Menu</label>
+                            <input id="name" name="name" type="text" class="form-control" placeholder="Nama Menu ..." />
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+
             </div>
         </div>
     </div>
+
     <div class="modal fade" id="editMenuModal" tabindex="-1" role="dialog" aria-labelledby="editMenuModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -46,6 +53,7 @@
             </div>
         </div>
     </div>
+
 </section>
 
 {{-- SubMenu Modal --}}

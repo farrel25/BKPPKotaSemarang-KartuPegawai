@@ -14,7 +14,8 @@ class DashboardMenuController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemen_menu.dashboard_menu.menu');
+        $menus = DashboardMenu::get();
+        return view('dashboard.manajemen_menu.dashboard_menu.menu', compact('menus'));
     }
 
     /**
@@ -35,7 +36,13 @@ class DashboardMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attr = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        DashboardMenu::create($attr);
+
+        return redirect()->route('manajemen-menu.menu');
     }
 
     /**
@@ -80,6 +87,7 @@ class DashboardMenuController extends Controller
      */
     public function destroy(DashboardMenu $dashboardMenu)
     {
-        //
+        $dashboardMenu->delete();
+        return redirect()->route('manajemen-menu.menu');
     }
 }
