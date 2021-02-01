@@ -80,7 +80,7 @@
                 <li>
                     <a href="{{ route('manajemen-pengguna.pengguna') }}"
                         class="{{ request()->is('dashboard/manajemen-pengguna/pengguna') ? 'mm-active' : '' }}">
-                        <i class=" metismenu-icon pe-7s-user"></i>
+                        <i class="metismenu-icon pe-7s-user"></i>
                         Akun Pengguna
                     </a>
                 </li>
