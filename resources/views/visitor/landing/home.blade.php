@@ -57,8 +57,13 @@
             <p>2. Fotokopi SAH SK PNS dilegalisir</p>
             <p>3. Foto 3x4</p>
             <p>4. Fotokopi STTPL dilegalisir</p>
+            @auth
             <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#pengajuan"
                 data-whatever="@mdo">Buat</a>
+            @else
+            <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#alert"
+                data-whatever="@mdo">Buat</a>
+            @endauth
 
         </div>
         <div class="col-lg-4 col-11 bg-activity ml-lg-3 mb-3" data-aos="fade-left" data-aos-duration="2000"
@@ -69,8 +74,13 @@
             <p>3. Foto 3x4</p>
             <p>4. Fotokopi STTPL dilegalisir</p>
             <p>5. Surat Keterangan Hilang dari Kepolisian</p>
+            @auth
             <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#penggantian"
                 data-whatever="@mdo">Buat</a>
+            @else
+            <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#alert"
+                data-whatever="@mdo">Buat</a>
+            @endauth
         </div>
     </div>
 </div>
@@ -189,6 +199,27 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                 <button type="submit" class="btn btn-warning">Kirim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Alert -->
+<div class="modal fade" id="alert" tabindex="-1" role="dialog" aria-labelledby="alertLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="alertLabel">Perhatian</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Silahkan login terlebih dahulu untuk mengajukan pembuatan kartu pegawai
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <a href="{{ route('login') }}" class="btn btn-warning">Login</a>
             </div>
         </div>
     </div>
