@@ -71,7 +71,7 @@
                                                     <i class="fas fa-edit"></i>
                                                 </a>
                                             </span>
-                                            <form id="delete-form "
+                                            <form id="delete-form"
                                                 action="{{ route('manajemen-menu.destroy', $menu->id) }}" method="post">
                                                 @csrf
                                                 @method('delete')
@@ -105,31 +105,32 @@
 
 <script>
     $(document).on('click', '#delete-form', function(e) {
-var form = this;
-e.preventDefault();
-swal.fire({
-title: 'Hapus Data Ini?',
-text: "Data Tidak Akan Kembali ",
-icon: 'warning',
-showCancelButton: true,
-confirmButtonText: 'Iya, hapus!',
-cancelButtonText: 'Tidak, batalkan!',
-reverseButtons: true
-}).then((result) => {
-if (result.isConfirmed) {
-return form.submit();
-} else if (
-/* Read more about handling dismissals below */
-result.dismiss === Swal.DismissReason.cancel
-) {
-swal.fire(
-'Dibatalkan',
-'Data anda masih tersimpan :)',
-'error'
-)
-}
-})
-});
+            var form = this;
+            e.preventDefault();
+            swal.fire({
+                title: 'Hapus Data Ini?',
+                text: "Data Tidak Akan Kembali ",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Iya, hapus!',
+                cancelButtonText: 'Tidak, batalkan!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    return form.submit();
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swal.fire(
+                        'Dibatalkan',
+                        'Data anda masih tersimpan :)',
+                        'error'
+                    )
+                }
+            })
+        });
+
 </script>
 
 @endsection
