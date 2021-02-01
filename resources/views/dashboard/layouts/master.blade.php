@@ -65,6 +65,7 @@
 
     <!-- Template Main JS File -->
     <script type="text/javascript" src="{{ asset('/admin') }}/js/main.js"></script>
+    @include('sweetalert::alert')
 </body>
 
 </html>
