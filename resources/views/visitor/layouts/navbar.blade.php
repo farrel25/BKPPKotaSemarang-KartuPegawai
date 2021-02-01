@@ -12,27 +12,28 @@
         </div>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="btn-masuk"><a href="{{ route('login') }}">Masuk</a></li>
-                <li class="btn-daftar"><a href="#">Daftar</a></li>
-                {{-- @auth --}}
+                @auth
                 <li class="drop-down ml-auto akun">
-                    <a>Hai, Nama</a>
-                    {{-- <a>Hai, {{ Auth::user()->name }}</a> --}}
+                    {{-- <a>Hai, Nama</a> --}}
+                    <a>Hai, {{ Auth::user()->username }}</a>
                     <ul>
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         <li>
-                            <a href="#">Logout</a>
-                            {{-- <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            {{-- <a href="{{ route('logout') }}">Logout</a> --}}
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
                             </a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
-                            </form> --}}
+                            </form>
                         </li>
                     </ul>
                 </li>
-                {{-- @endauth --}}
+                @else
+                <li class="btn-masuk"><a href="{{ route('login') }}">Masuk</a></li>
+                <li class="btn-daftar"><a href="{{ route('register') }}">Daftar</a></li>
+                @endauth
             </ul>
         </nav>
         <!-- .nav-menu -->

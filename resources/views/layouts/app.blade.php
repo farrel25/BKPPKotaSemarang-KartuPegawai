@@ -97,7 +97,11 @@
     </main>
     </div> --}}
 
-    @yield('content')
+    <div id="app">
+        <main>
+            @yield('content')
+        </main>
+    </div>
 
     <!-- Vendor CSS Files -->
     <script src="{{ asset('/auth/vendor') }}/jquery/jquery-3.2.1.min.js"></script>
