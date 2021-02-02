@@ -95,9 +95,9 @@
                 </span>
                 @enderror
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                <div class="wrap-input100 validate-input m-b-16 m-t-12" data-validate="Password is required">
                     <input class="input100" id="password" type="password" name="password" placeholder="Password"
-                        class="form-control @error('password') is-invalid @enderror">
+                        class="form-control @error('password') is-invalid @enderror" data-toggle="password">
                     <span class="focus-input100"></span>
                 </div>
                 @error('password')

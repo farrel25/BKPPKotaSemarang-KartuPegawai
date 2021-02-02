@@ -115,6 +115,10 @@
 
     <!-- Main CSS File -->
     <script src="{{ asset('/auth/js') }}/main.js"></script>
+
+    <!-- show / hide password -->
+    <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+
 </body>
 
 </html>

@@ -34,6 +34,7 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
+                            <th class=" text-center">Foto</th>
                             <th class=" text-center">Nama Pegawai</th>
                             <th class=" text-center">NIP</th>
                             <th class=" text-center">Tgl Pengajuan</th>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\HistoryEmployeeCard;
+use App\Proposal;
 use Illuminate\Http\Request;
 
 class HistoryEmployeeCardController extends Controller
@@ -14,7 +15,8 @@ class HistoryEmployeeCardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.kartu_pegawai.kartu_pegawai_selesai.kartu-pegawai-selesai');
+        $finishedProposals = Proposal::where('is_diambil', 1)->orderBy('created_at', 'desc')->paginate(10);
+        return view('dashboard.kartu_pegawai.kartu_pegawai_selesai.kartu-pegawai-selesai', compact('finishedProposals'));
     }
 
     // /**

@@ -17,7 +17,8 @@ class ProposalController extends Controller
      */
     public function index()
     {
-        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.pengajuan-kartu-pegawai');
+        $proposals = Proposal::orderBy('created_at', 'desc')->paginate(10);
+        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.pengajuan-kartu-pegawai', compact('proposals'));
     }
 
     /**

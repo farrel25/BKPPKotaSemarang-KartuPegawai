@@ -23,11 +23,11 @@
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                         href="#"><i class="fas fa-print"></i> Cetak Kartu Pegawai Terpilih</a>
-                    <a type="button"
+                    {{-- <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                         href="{{ route('kartu-pegawai.tambah-pengajuan-kartu-pegawai') }}"><i class="fas fa-plus"></i>
-                        Tambah Kartu Pegawai
-                    </a>
+                    Tambah Kartu Pegawai
+                    </a> --}}
                 </div>
             </div>
             <div class="table-responsive">
@@ -37,21 +37,24 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
+                            <th class=" text-center">Foto 3x4</th>
                             <th class=" text-center">Nama Pegawai</th>
                             <th class=" text-center">NIP</th>
-                            <th class=" text-center">Foto 3x4</th>
-                            <th class=" text-center">SK CPNS</th>
+                            <!--<th class=" text-center">SK CPNS</th>
                             <th class=" text-center">SK PNS</th>
                             <th class=" text-center">STTPL</th>
-                            <th class=" text-center">SK Hilang</th>
+                            <th class=" text-center">SK Hilang</th>-->
+                            <th class=" text-center">Keterangan</th>
                             <th class=" text-center">Status</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($proposals as $number => $proposal)
                         <tr>
-                            <td class=" text-center"><input type="checkbox" name="#" value="#">
+                            <td class=" text-center">
+                                <input type="checkbox" name="#" value="#">
                             </td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ $number + $proposals->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     {{-- <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
@@ -87,23 +90,32 @@
                                 </div>
                             </td>
                             <td class=" text-center">
-                                <img src="#" alt="" width="70">
-                                <i>#</i>
+                                <img src="{{ asset('storage/' . $proposal->photo) }}" alt="" width="70">
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            @php
+                            $employeeId = $proposal->user->employee_id;
+                            $employeeData = \DB::table('employees')->where('id', $employeeId)->first();
+                            // var_dump($employeeData);
+                            @endphp
+                            <td class=" text-center">{{ $employeeData->nama }}</td>
+                            <td class=" text-center">{{ $employeeData->nip }}</td>
                             <td class=" text-center">
+                                {{ $proposal->sk_hilang == null ? "Buat baru":"Penggantian karena hilang" }}
+                            </td>
+                            <td class=" text-center">
+                                @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
+                                $proposal->sttpl_acc == null && $proposal->photo_acc == null)
                                 <div class="badge badge-primary">Masuk</div>
-                                <br>
+                                @elseif($proposal->sk_cpns_acc === 1 || $proposal->sk_pns_acc === 1 ||
+                                $proposal->sttpl_acc === 1 || $proposal->photo_acc === 1)
                                 <div class="badge badge-warning text-white">Revisi</div>
-                                <br>
-                                <div class="badge badge-alternate">Cetak</div>
+                                @elseif($proposal->sk_cpns_acc === 1 && $proposal->sk_pns_acc === 1 &&
+                                $proposal->sttpl_acc === 1 && $proposal->photo_acc === 1)
+                                <div class="badge badge-alternate">Proses Cetak</div>
+                                @endif
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -112,7 +124,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            {{-- {{ $users->links() }} --}}
+                            {{ $proposals->links() }}
                         </ul>
                     </nav>
                 </div>
