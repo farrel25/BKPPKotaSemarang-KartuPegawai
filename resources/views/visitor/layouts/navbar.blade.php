@@ -12,9 +12,14 @@
         </div>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
+                <li class="">
+                    <a href="#tata-cara ">Tata Cara</a>
+                </li>
+                <li class="">
+                    <a href="#faq">Pertanyaan</a>
+                </li>
                 @auth
-                <li class="drop-down ml-auto akun">
-                    {{-- <a>Hai, Nama</a> --}}
+                <li class="drop-down ml-auto">
                     <a>Hai, {{ Auth::user()->username }}</a>
                     <ul>
                         @role('Administrator')

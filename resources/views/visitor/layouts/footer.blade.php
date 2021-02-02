@@ -24,15 +24,16 @@
             <div class="col-lg-4 footer-aduan">
                 <form>
                     <div class="form-group mb-3">
-                        <label for="#" class="mb-1">Aduan</label>
-                        <textarea class="form-control" id="#" placeholder="#"></textarea>
+                        <label for="#" class="mb-1">Pertanyaan</label>
+                        <textarea class="form-control" id="#" placeholder="Isi pertanyaan ..."></textarea>
                     </div>
                     <div class="form-group row ">
                         <div class=" col-lg-9">
                             <input type="text" class="form-control mb-3" id="#" placeholder="Pengirim">
                         </div>
                         <div class=" col-lg-3 ">
-                            <button type="submit" class="btn btn-warning btn-responsive btn-blue ">Kirim</button>
+                            <button type="submit"
+                                class="btn btn-warning btn-responsive btn-blue w-100 text-white">Kirim</button>
                         </div>
                     </div>
                 </form>
