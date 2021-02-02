@@ -13,7 +13,7 @@
 @include('dashboard.layouts.page-title',$data)
 
 
-<div class="row">
+<div class="row" id="accordion">
     <div class="col-md-6">
         <div class="row">
             <div class="col-md-12">
@@ -38,54 +38,55 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <span data-toggle="modal" data-target="#editRoleModal">
-                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                    title="Edit Role" data-placement="bottom">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </span>
-                                            <a role="tab" id="tab-0" data-toggle="tab" href="#tab-content-0"
-                                                class="btn btn-alternate btn-sm mr-1 ">
-                                                <i class="fas fa-network-wired"></i>
-                                            </a>
-                                            <form id="delete-form" action="#" method="post">
-                                                <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Hapus Role" data-placement="bottom">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td class=" text-center">#</td>
-                                </tr>
-                                <tr>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">
-                                        <div class="d-flex justify-content-center">
-                                            <span data-toggle="modal" data-target="#editRoleModal">
-                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                                    title="Edit Role" data-placement="bottom">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </span>
-                                            <a role="tab" id="tab-1" data-toggle="tab" href="#tab-content-1"
-                                                class="btn btn-alternate btn-sm mr-1 ">
-                                                <i class="fas fa-network-wired"></i>
-                                            </a>
-                                            <form id="delete-form" action="#" method="post">
-                                                <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                    data-toggle="tooltip" title="Hapus Role" data-placement="bottom">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </td>
-                                    <td class=" text-center">#</td>
-                                </tr>
+                                <div id="headingOne">
+                                    <tr data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                                        aria-controls="collapseOne">
+                                        <td class=" text-center">#</td>
+                                        <td class=" text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <span data-toggle="modal" data-target="#editRoleModal">
+                                                    <a href="#" class="btn btn-primary btn-sm mr-1 "
+                                                        data-toggle="tooltip" title="Edit Role" data-placement="bottom">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </span>
+                                                <form id="delete-form" action="#" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-sm mr-1"
+                                                        data-toggle="tooltip" title="Hapus Role"
+                                                        data-placement="bottom">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td class=" text-center">#</td>
+                                    </tr>
+                                </div>
+                                <div id="headingTwo">
+                                    <tr data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                                        aria-controls="collapseTwo">
+                                        <td class=" text-center">#</td>
+                                        <td class=" text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <span data-toggle="modal" data-target="#editRoleModal">
+                                                    <a href="#" class="btn btn-primary btn-sm mr-1 "
+                                                        data-toggle="tooltip" title="Edit Role" data-placement="bottom">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </span>
+                                                <form id="delete-form" action="#" method="post">
+                                                    <button type="submit" class="btn btn-danger btn-sm mr-1"
+                                                        data-toggle="tooltip" title="Hapus Role"
+                                                        data-placement="bottom">
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td class=" text-center">#</td>
+                                    </tr>
+                                </div>
+
                             </tbody>
                         </table>
                     </div>
@@ -102,63 +103,58 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-6">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="main-card mb-3 card tab-content">
-                    <div class="tab-pane tabs-animation fade active" id="tab-content-0" role="tabpanel">
-                        <div class="card-header">Hak Akses 1
-                        </div>
-                        <div class="table-responsive ">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
-                                <thead>
-                                    <tr>
-                                        <th class=" text-center">No.</th>
-                                        <th class=" text-center">Menu</th>
-                                        <th class=" text-center">Hak Akses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class=" text-center">#</td>
-                                        <td class=" text-center">#</td>
-                                        <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-body ">
-                            <a href="#" class="btn btn-primary ">Ubah</a>
-                        </div>
-                    </div>
-                    <div class="tab-pane tabs-animation fade" id="tab-content-1" role="tabpanel">
-                        <div class="card-header">Hak Akses 2
-                        </div>
-                        <div class="table-responsive ">
-                            <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
-                                <thead>
-                                    <tr>
-                                        <th class=" text-center">No.</th>
-                                        <th class=" text-center">Menu</th>
-                                        <th class=" text-center">Hak Akses</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td class=" text-center">#</td>
-                                        <td class=" text-center">#</td>
-                                        <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="card-body ">
-                            <a href="#" class="btn btn-primary ">Ubah</a>
-                        </div>
-                    </div>
+        <div class="main-card mb-3 card tab-content">
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div class="card-header">Hak Akses 1
+                </div>
+                <div class="table-responsive ">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
+                        <thead>
+                            <tr>
+                                <th class=" text-center">No.</th>
+                                <th class=" text-center">Menu</th>
+                                <th class=" text-center">Hak Akses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class=" text-center">#</td>
+                                <td class=" text-center">#</td>
+                                <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary  ml-auto">Ubah</a>
+                </div>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                <div class="card-header">Hak Akses 2
+                </div>
+                <div class="table-responsive ">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
+                        <thead>
+                            <tr>
+                                <th class=" text-center">No.</th>
+                                <th class=" text-center">Menu</th>
+                                <th class=" text-center">Hak Akses</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class=" text-center">#</td>
+                                <td class=" text-center">#</td>
+                                <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-primary  ml-auto">Ubah</a>
                 </div>
             </div>
         </div>
