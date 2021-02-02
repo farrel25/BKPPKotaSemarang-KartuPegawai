@@ -1731,6 +1731,19 @@ section {
     }
 }
 
+.bg-masuk-daftar{
+    /* The image used */
+    background-image: url("/visitor/images/bg-1.png");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .info-services {
     position: relative;
     background-image: url("/visitor/images/bg-services.png");
