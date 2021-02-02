@@ -85,14 +85,14 @@
                                         Akun Pengguna
                                     </button>
                                     <button type="button" tabindex="0" class="dropdown-item">
-                                        Pemgaturan
+                                        Pengaturan
                                     </button>
                                     <button type="button" tabindex="0" class="dropdown-item">
                                         Notifikasi
                                     </button>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="{{ route('home') }}" type="button" tabindex="0" class="dropdown-item">
-                                        Kembali Ke Beradna
+                                        Kembali Ke Beranda
                                     </a>
                                     <div tabindex="-1" class="dropdown-divider"></div>
                                     <a href="{{ route('logout') }}" tabindex="0" class="dropdown-item"

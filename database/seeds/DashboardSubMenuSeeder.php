@@ -41,8 +41,8 @@ class DashboardSubMenuSeeder extends Seeder
             '/',
 
             // 2
-            'dashboard/kartu-pegawai/pengajuan',
-            'dashboard/kartu-pegawai/selesai',
+            '/dashboard/kartu-pegawai/pengajuan',
+            '/dashboard/kartu-pegawai/selesai',
 
             // 3
             '/dashboard/pegawai/data',

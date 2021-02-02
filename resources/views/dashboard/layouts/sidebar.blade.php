@@ -62,7 +62,7 @@
                 @foreach ($subMenus as $subMenu)
 
                 @php
-                // dd($subMenu);
+                // var_dump($subMenu);
                 $paths = Request::segments();
                 $path = '';
                 foreach ($paths as $p) {
