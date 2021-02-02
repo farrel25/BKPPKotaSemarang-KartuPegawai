@@ -42,8 +42,8 @@
     </div>
 </div>
 
-<section id="tata-cara" class="tata-cara ">
-    <div class="container">
+<section id="tata-cara" class="tata-cara mb-5 ">
+    <div class="container ">
         <div class="section-title" data-aos="fade-up">
             <h2>Tata cara</h2>
             <p>Jika masih kebingungan bisa download file "Detail Penggunaan"</p>
@@ -76,7 +76,7 @@
 </section>
 
 <section id="make-card">
-    <div class="container mb-5">
+    <div class="container ">
         <div class="section-title" data-aos="fade-up">
             <h2>Persyaratan dan Pembuatan</h2>
             <p>Upload file sesuai dengan aslinya</p>
