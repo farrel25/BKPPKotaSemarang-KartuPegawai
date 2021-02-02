@@ -42,15 +42,34 @@
     </div>
 </div>
 
-<section id="tata-cara" class="tata-cara">
+<section id="tata-cara" class="tata-cara ">
     <div class="container">
         <div class="section-title" data-aos="fade-up">
-            <h2>Tata Cara</h2>
-            <p></p>
+            <h2>Tata cara</h2>
+            <p>Jika masih kebingungan bisa download file "Detail Penggunaan"</p>
         </div>
-        <div class="row">
-            <div class="col-12 ">
-                <p></p>
+        <div class="row justify-content-center">
+            <div class="col-md-6 ">
+                <ol>
+                    <li data-aos="fade-up" data-aos-delay="100">Buat akun</li>
+                    <li data-aos="fade-up" data-aos-delay="200">Login</li>
+                    <li data-aos="fade-up" data-aos-delay="300">Siapkan file persyaratan sesuai dengan yang diajukan
+                    </li>
+                    <li data-aos="fade-up" data-aos-delay="400">Siapkan file pas foto 3x4</li>
+                    <li data-aos="fade-up" data-aos-delay="500">Jika ada kesalahan upload atau ada ketidaksesuaian akan
+                        ada notifikasi untuk revisi </li>
+                    <li data-aos="fade-up" data-aos-delay="600">Status pembuatan kartu pegawai bisa dilihat di
+                        notifikasi</li>
+                </ol>
+            </div>
+            <div class="col-md-4 ">
+                <div class="card " data-aos="fade-up" data-aos-delay="1000">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-weight: 600">Detail Penggunaan</h5>
+                        <p class="card-text">Berisikan file PDF tutorial dalam penggunaan website.</p>
+                        <a href="#" class="btn btn-secondary"> <i class="fa fa-download"></i> Download</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -66,10 +85,12 @@
             <div class="col-lg-4 col-11 bg-activity mr-lg-3 mb-3" data-aos="fade-right" data-aos-duration="2000"
                 data-aos-delay="500">
                 <h3>Pengajuan Kartu Pegawai</h3>
-                <p>1. Scan SK CPNS </p>
-                <p>2. Scan SAH SK PNS </p>
-                <p>3. Foto 3x4</p>
-                <p>4. Scan STTPL </p>
+                <ul>
+                    <li>Scan SK CPNS </li>
+                    <li>Scan SAH SK PNS </li>
+                    <li>Foto 3x4</li>
+                    <li>Scan STTPL </li>
+                </ul>
                 @auth
                 @if ($isProposalBeingProcessed)
                 <div id="proposal-processed1" class="btn btn-activity">Buat</div>
@@ -85,11 +106,14 @@
             <div class="col-lg-4 col-11 bg-activity ml-lg-3 mb-3" data-aos="fade-left" data-aos-duration="2000"
                 data-aos-delay="500">
                 <h3>Penggantian Karena Hilang</h3>
-                <p>1. Scan SK CPNS </p>
-                <p>2. Scan SAH SK PNS </p>
-                <p>3. Foto 3x4</p>
-                <p>4. Scan STTPL </p>
-                <p>5. Surat Keterangan Hilang dari Kepolisian</p>
+                <ul>
+                    <li>Scan SK CPNS </li>
+                    <li>Scan SAH SK PNS </li>
+                    <li>Foto 3x4</li>
+                    <li>Scan STTPL </li>
+                    <li>Surat Keterangan Hilang dari Kepolisian</li>
+                </ul>
+
                 @auth
                 @if ($isProposalBeingProcessed)
                 <div id="proposal-processed2" class="btn btn-activity">Buat</div>

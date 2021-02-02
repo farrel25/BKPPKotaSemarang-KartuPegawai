@@ -1667,7 +1667,7 @@ section {
 .bg-header {
     background-image: url("/visitor/images/bg-2.png");
     background-size: cover;
-    height: 600px;
+    height: 622px;
     text-align: center;
     padding-top: 150px;
     position: relative;
@@ -1750,7 +1750,7 @@ section {
 
 .info-services p {
     font-weight: 400;
-    color: #786535;
+    color: #373139;
 }
 
 .bg-activity {
