@@ -84,15 +84,14 @@
             <form method="POST" action="{{ route('login') }}" class="login100-form validate-form flex-sb flex-w">
                 @csrf
 
-                <div class="wrap-input100 validate-input m-b-16" data-validate="username is required">
+                <div class="wrap-input100 validate-input m-b-4" data-validate="username is required">
                     <input class="input100" type="text" id="username" name="username" placeholder="Username"
-                        class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}">
+                        class="form-control @error('username') is-invalid  @enderror" value="{{ old('username') }}">
                     <span class="focus-input100"></span>
                 </div>
                 @error('username')
-                <span class="invalid-feedback" role="alert">
-                    {{-- <strong>{{ $message }}</strong> --}}
-                    <strong>pesan eror</strong>
+                <span class="font-italic text-danger mb-3" role="alert">
+                    {{ $message }}
                 </span>
                 @enderror
 
@@ -102,9 +101,8 @@
                     <span class="focus-input100"></span>
                 </div>
                 @error('password')
-                <span class="invalid-feedback" role="alert">
-                    {{-- <strong>{{ $message }}</strong> --}}
-                    <strong>pesan eror</strong>
+                <span class="font-italic text-danger mb-3" role="alert">
+                    {{ $message }}
                 </span>
                 @enderror
 
