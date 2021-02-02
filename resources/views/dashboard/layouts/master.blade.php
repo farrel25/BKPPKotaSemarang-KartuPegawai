@@ -19,7 +19,7 @@
     <meta name="description" content="BKPP Kota Semarang - Kartu Pegawai - Dashboard" />
     <meta name="msapplication-tap-highlight" content="no" />
 
-    <!-- Template Main CSS File -->
+    <!-- Main CSS File -->
     <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet" />
     <link href="{{ asset('/admin') }}/css/main.css" rel="stylesheet">
     <link href="{{ asset('/admin') }}/css/style.css" rel="stylesheet">
@@ -73,7 +73,7 @@
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script> --}}
 
-    <!-- Template Main JS File -->
+    <!-- Main JS File -->
     <script type="text/javascript" src="{{ asset('/admin') }}/js/main.js"></script>
     <script src="{{ asset('/vendor') }}/sweetalert/sweetalert.all.js"></script>
 

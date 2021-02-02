@@ -59,13 +59,17 @@
             <p>3. Foto 3x4</p>
             <p>4. Fotokopi STTPL dilegalisir</p>
             @auth
+            @if ($isProposalBeingProcessed)
+            <div id="proposal-processed1" class="btn btn-activity">Buat</div>
+            @else
             <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#pengajuan"
                 data-whatever="@mdo">Buat</a>
+            @endif
             @else
-            <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#alert"
-                data-whatever="@mdo">Buat</a>
+            <div id="please-login1" class="btn btn-activity">Buat</div>
             @endauth
         </div>
+
         <div class="col-lg-4 col-11 bg-activity ml-lg-3 mb-3" data-aos="fade-left" data-aos-duration="2000"
             data-aos-delay="500">
             <h3>Penggantian Karena Hilang</h3>
@@ -75,15 +79,71 @@
             <p>4. Fotokopi STTPL dilegalisir</p>
             <p>5. Surat Keterangan Hilang dari Kepolisian</p>
             @auth
+            @if ($isProposalBeingProcessed)
+            <div id="proposal-processed2" class="btn btn-activity">Buat</div>
+            @else
             <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#penggantian"
                 data-whatever="@mdo">Buat</a>
+            @endif
             @else
-            <a class="btn btn-activity" href="#" role="button" data-toggle="modal" data-target="#alert"
-                data-whatever="@mdo">Buat</a>
+            <div id="please-login2" class="btn btn-activity">Buat</div>
             @endauth
         </div>
     </div>
 </div>
 
+<script>
+    $("#proposal-processed1").click(function() {
+        Swal.fire({
+            title: 'Pemberitahuan',
+            text: 'Kartu pegawai anda sedang diproses',
+            icon: 'info',
+            confirmButtonText: 'tutup'
+        });
+    });
+
+    $("#proposal-processed2").click(function() {
+        Swal.fire({
+            title: 'Pemberitahuan',
+            text: 'Kartu pegawai anda sedang diproses',
+            icon: 'info',
+            confirmButtonText: 'tutup'
+        });
+    });
+
+    $("#please-login1").click(function() {
+        Swal.fire({
+            title: 'Perhatian',
+            text: 'Silahkan login terlebih dahulu',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Login',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{route('login')}}';
+            }
+        });
+    });
+
+    $("#please-login2").click(function() {
+        Swal.fire({
+            title: 'Perhatian',
+            text: 'Silahkan login terlebih dahulu',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Login',
+            cancelButtonText: 'Batal',
+            reverseButtons: true
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{route('login')}}';
+            }
+        });
+    });
+</script>
 
 @endsection

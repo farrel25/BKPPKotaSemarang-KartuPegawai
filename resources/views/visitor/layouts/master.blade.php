@@ -9,9 +9,6 @@
     {{-- Font --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous"> --}}
 
     <title>{{ $title ?? 'BKPP Kota Semarang - Kartu Pegawai' }}</title>
 
@@ -35,10 +32,14 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous" />
 
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('/visitor/vendor') }}/jquery/jquery.min.js"></script>
+
 </head>
 
 
 <body>
+    @include('sweetalert::alert')
 
     @include('visitor.layouts.modal')
 
@@ -62,7 +63,6 @@
     </script>
 
     <!-- Vendor JS Files -->
-    <script src="{{ asset('/visitor/vendor') }}/jquery/jquery.min.js"></script>
     <script src="{{ asset('/visitor/vendor') }}/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('/visitor/vendor') }}/jquery.easing/jquery.easing.min.js"></script>
     <script src="{{ asset('/visitor/vendor') }}/php-email-form/validate.js"></script>
@@ -75,6 +75,9 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('/visitor') }}/js/main.js"></script>
+
+    <!-- Sweet Alert 2 -->
+    <script src="{{ asset('/vendor') }}/sweetalert/sweetalert.all.js"></script>
 </body>
 
 </html>
