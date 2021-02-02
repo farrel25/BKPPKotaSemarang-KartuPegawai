@@ -24,6 +24,9 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
 
+    // Landing Page - Upload data pengajuan KarPeg
+    Route::post('/pengajuan', 'ProposalController@store')->name('home.store');
+
     // Dashboard
     Route::middleware('permission:Menu Utama')->get('/dashboard', 'DashboardController@index')->name('dashboard');
 

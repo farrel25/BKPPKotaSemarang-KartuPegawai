@@ -35,6 +35,15 @@ class ProposalController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->file('sk_cpns'));
+        $attr = $request->validate([
+            'sk_cpns' => 'required|file|mimes:pdf|max:3000',
+            'sk_pns' => 'required|file|mimes:pdf|max:3000',
+            'sttpl' => 'required|file|mimes:pdf|max:3000',
+            'photo' => 'required|image|mimes:png,jpg,jpeg|max:1000',
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**

@@ -17,7 +17,9 @@
                     {{-- <a>Hai, Nama</a> --}}
                     <a>Hai, {{ Auth::user()->username }}</a>
                     <ul>
+                        @role('Administrator')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                        @endrole
                         <li><a href="#">Pemberitahuan Kartu</a></li>
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}
