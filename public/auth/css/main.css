@@ -31,7 +31,7 @@ a {
     font-family: Ubuntu-Regular;
     font-size: 14px;
     line-height: 1.7;
-    color: #373139;
+    color: #666666;
     margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -45,7 +45,7 @@ a:focus {
 
 a:hover {
     text-decoration: none;
-    color: #000000;
+    color: #403866;
 }
 
 /*---------------------------------------------*/
@@ -141,15 +141,6 @@ iframe {
     font-size: 14px;
     /* color: #827ffe; */
     /* color: #373139; */
-    color: #373139;
-    /* color: #999999; */
-    line-height: 1.4;
-}
-.txt1:hover{
-    font-family: Ubuntu-Regular;
-    font-size: 14px;
-    /* color: #827ffe; */
-    /* color: #373139; */
     color: #fbb448;
     /* color: #999999; */
     line-height: 1.4;
@@ -161,14 +152,6 @@ iframe {
 .limiter {
     width: 100%;
     margin: 0 auto;
-}
-
-.bg-glass {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.292);
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.571);
-    backdrop-filter: blur(5px);
-    padding: 30px;
 }
 
 .container-login100 {
@@ -191,7 +174,8 @@ iframe {
 
 .wrap-login100 {
     /* width: 390px; */
-    width: 400px;
+    width: 300px;
+    background: #fff;
     border-radius: 10px;
     position: relative;
 }
@@ -206,7 +190,7 @@ iframe {
 .login100-form-title {
     font-family: Ubuntu-Bold;
     font-size: 30px;
-    /* color: #373139; */
+    /* color: #403866; */
     color: #373139;
     line-height: 1.2;
     text-transform: uppercase;
@@ -222,7 +206,7 @@ iframe {
 .wrap-input100 {
     width: 100%;
     position: relative;
-    background-color: #fff;
+    background-color: #e6e6e6;
     border: 1px solid transparent;
     border-radius: 4px;
 }
@@ -230,7 +214,7 @@ iframe {
 /*---------------------------------------------*/
 .input100 {
     font-family: Ubuntu-Bold;
-    color: #373139;
+    color: #403866;
     line-height: 1.2;
     font-size: 14px;
 
@@ -303,7 +287,7 @@ iframe {
 .label-checkbox100 {
     font-family: Ubuntu-Regular;
     font-size: 14px;
-    color: #373139;
+    color: #999999;
     line-height: 1.2;
 
     display: block;
@@ -389,7 +373,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-    /* background-color: #373139; */
+    /* background-color: #403866; */
     background: #ac7b32;
     border: 1px solid #ac7b32;
     color: #fff;
@@ -462,18 +446,5 @@ iframe {
     }
 }
 
-.bg-masuk-daftar {
-    /* The image used */
-    z-index: -2;
-    background-image: url("/visitor/images/bg-1.png");
-
-    /* Full height */
-    height: 100%;
-
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 /*//////////////////////////////////////////////////////////////////
 [ Responsive ]*/
