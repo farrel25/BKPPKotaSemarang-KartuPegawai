@@ -94,9 +94,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <button class=" btn btn-secondary">
-                                                            <i class=" fa fa-download"></i>
-                                                        </button>
+                                                        <a href="{{ route('kartu-pegawai.download.sk-cpns', $proposal->id) }}" class="btn btn-secondary">
+                                                            <i class="fa fa-download"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -120,8 +120,9 @@
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <button class=" btn btn-secondary"> <i
-                                                                class=" fa fa-download"></i></button>
+                                                        <a href="{{ route('kartu-pegawai.download.sk-pns', $proposal->id) }}" class=" btn btn-secondary">
+                                                            <i class=" fa fa-download"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -144,9 +145,11 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="widget-content-right"><button
-                                                            class=" btn btn-secondary"> <i
-                                                                class=" fa fa-download"></i></button>
+                                                    <div class="widget-content-right">
+                                                        <a href="{{ route('kartu-pegawai.download.sttpl', $proposal->id) }}"
+                                                            class=" btn btn-secondary">
+                                                            <i class=" fa fa-download"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,9 +173,10 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="widget-content-right"><button
-                                                            class=" btn btn-secondary"> <i
-                                                                class=" fa fa-download"></i></button>
+                                                    <div class="widget-content-right">
+                                                        <a href="{{ route('kartu-pegawai.download.sk-hilang', $proposal->id) }}" class=" btn btn-secondary">
+                                                            <i class=" fa fa-download"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -196,9 +200,10 @@
                                                             </label>
                                                         </div>
                                                     </div>
-                                                    <div class="widget-content-right"><button
-                                                            class=" btn btn-secondary"> <i
-                                                                class=" fa fa-download"></i></button>
+                                                    <div class="widget-content-right">
+                                                        <a href="{{ route('kartu-pegawai.download.photo', $proposal->id) }}" class=" btn btn-secondary">
+                                                            <i class=" fa fa-download"></i>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>

@@ -40,6 +40,17 @@ Route::middleware('auth')->group(function () {
         // update
         Route::get('/{proposal}/edit', 'ProposalController@edit')->name('kartu-pegawai.edit-pengajuan-kartu-pegawai');
         Route::patch('/{proposal}/edit', 'ProposalController@update')->name('kartu-pegawai.update');
+        // download sk cpns
+        Route::get('/{proposal}/download-sk-cpns', 'ProposalController@downloadSkCpns')->name('kartu-pegawai.download.sk-cpns');
+        // download sk pns
+        Route::get('/{proposal}/download-sk-pns', 'ProposalController@downloadSkPns')->name('kartu-pegawai.download.sk-pns');
+        // download sttpl
+        Route::get('/{proposal}/download-sttpl', 'ProposalController@downloadSttpl')->name('kartu-pegawai.download.sttpl');
+        // download sk hilang
+        Route::get('/{proposal}/download-sk-hilang', 'ProposalController@downloadSkHilang')->name('kartu-pegawai.download.sk-hilang');
+        // download photo
+        Route::get('/{proposal}/download-photo', 'ProposalController@downloadPhoto')->name('kartu-pegawai.download.photo');
+
         // Route::get('/tambah-pengajuan-kartu-pegawai', 'ProposalController@create')->name('kartu-pegawai.tambah-pengajuan-kartu-pegawai');
 
         // Kartu Pegawai Selesai

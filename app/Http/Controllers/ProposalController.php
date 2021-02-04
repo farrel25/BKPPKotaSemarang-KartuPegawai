@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
 use App\Employee;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProposalController extends Controller
@@ -197,5 +198,30 @@ class ProposalController extends Controller
     public function destroy(Proposal $proposal)
     {
         //
+    }
+
+    public function downloadSkCpns(Proposal $proposal)
+    {
+        return Storage::download($proposal->sk_cpns);
+    }
+
+    public function downloadSkPns(Proposal $proposal)
+    {
+        return Storage::download($proposal->sk_pns);
+    }
+
+    public function downloadSttpl(Proposal $proposal)
+    {
+        return Storage::download($proposal->sttpl);
+    }
+
+    public function downloadSkHilang(Proposal $proposal)
+    {
+        return Storage::download($proposal->sk_hilang);
+    }
+
+    public function downloadPhoto(Proposal $proposal)
+    {
+        return Storage::download($proposal->photo);
     }
 }
