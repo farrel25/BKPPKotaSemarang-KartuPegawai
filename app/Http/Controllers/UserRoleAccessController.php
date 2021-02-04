@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\UserRoleAccess;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class UserRoleAccessController extends Controller
 {
@@ -14,7 +16,9 @@ class UserRoleAccessController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role-dan-hak-akses');
+        $roles = Role::get();
+        $permissions = Permission::get();
+        return view('dashboard.manajemen_pengguna.role_dan_hak_akses.role-dan-hak-akses', compact('roles', 'permissions'));
     }
 
     // /**
