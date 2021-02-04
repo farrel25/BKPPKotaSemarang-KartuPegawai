@@ -97,3 +97,6 @@ Route::middleware('auth')->group(function () {
 
 // Landing Page
 Route::get('/', 'HomeController@index')->name('home');
+
+//Notification Page
+Route::get('/notification', 'NotificationController@index')->name('notification');

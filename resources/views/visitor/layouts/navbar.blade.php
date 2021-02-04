@@ -12,11 +12,11 @@
         </div>
         <nav class="nav-menu d-none d-lg-block">
             <ul>
-                <li class="">
+                <li class="" id="tutorial">
                     <a href="#tata-cara ">Tata Cara</a>
                 </li>
                 <li class="">
-                    <a href="#faq">Pertanyaan</a>
+                    <a href="#faq" id="pertanyaan">Pertanyaan</a>
                 </li>
                 @auth
                 <li class="drop-down ml-auto">
@@ -25,7 +25,8 @@
                         @role('Administrator')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         @endrole
-                        <li><a href="#">Pemberitahuan Kartu</a></li>
+                        <li><a href="notification">Pemberitahuan Kartu</a></li>
+                        <hr>
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}
                             <a href="{{ route('logout') }}"

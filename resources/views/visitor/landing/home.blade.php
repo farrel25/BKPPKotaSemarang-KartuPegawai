@@ -62,7 +62,7 @@
                         notifikasi</li>
                 </ol>
             </div>
-            <div class="col-md-4 ">
+            <div class="col-md-4 mt-3">
                 <div class="card " data-aos="fade-up" data-aos-delay="1000">
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: 600">Detail Penggunaan</h5>
@@ -78,7 +78,7 @@
 <section id="make-card">
     <div class="container ">
         <div class="section-title" data-aos="fade-up">
-            <h2>Persyaratan dan Pembuatan</h2>
+            <h2>Pembuatan</h2>
             <p>Upload file sesuai dengan aslinya</p>
         </div>
         <div class="row justify-content-center">
