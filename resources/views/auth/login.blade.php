@@ -81,7 +81,7 @@
                     Login
                 </span>
 
-                <form method=" POST" action="{{ route('login') }}" class="login100-form validate-form flex-sb flex-w">
+                <form method="POST" action="{{ route('login') }}" class="login100-form validate-form flex-sb flex-w">
                     @csrf
 
                     <div class="wrap-input100 validate-input m-b-4" data-validate="username is required">
@@ -91,7 +91,7 @@
                     </div>
                     @error('username')
                     <span class="font-italic text-danger mb-3" role="alert">
-                        {{ $message }}
+                        <small>{{ $message }}</small>
                     </span>
                     @enderror
 
@@ -102,7 +102,7 @@
                     </div>
                     @error('password')
                     <span class="font-italic text-danger mb-3" role="alert">
-                        {{ $message }}
+                        <small>{{ $message }}</small>
                     </span>
                     @enderror
 
@@ -126,20 +126,20 @@
                             {{ __('Login') }}
                         </button>
                     </div>
-                    </form>
+                </form>
 
-                    <div class="row mt-4 mx-auto">
-                        <div class="col-12 text-center">
-                            <a href="{{ route('register') }}">
-                                Belum punya akun? daftar
-                            </a>
-                        </div>
-                        <div class="col-12 mt-2 text-center">
-                            <a href="{{ route('home') }}">
-                                Kembali ke Beranda
-                            </a>
-                        </div>
+                <div class="row mt-4 mx-auto">
+                    <div class="col-12 text-center">
+                        <a href="{{ route('register') }}">
+                            Belum punya akun? daftar
+                        </a>
                     </div>
+                    <div class="col-12 mt-2 text-center">
+                        <a href="{{ route('home') }}">
+                            Kembali ke Beranda
+                        </a>
+                    </div>
+                </div>
 
             </div>
         </div>

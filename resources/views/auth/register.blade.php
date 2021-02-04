@@ -90,45 +90,64 @@
                 <form method="POST" action="{{ route('register') }}" class="login100-form validate-form flex-sb flex-w">
                     @csrf
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="username is required">
+                    <div class="wrap-input100 validate-input" data-validate="nip is required">
+                        <input class="input100" type="text" id="nip" name="nip" placeholder="NIP"
+                            class="form-control @error('nip') is-invalid @enderror" value="{{ old('nip') }}">
+                        <span class="focus-input100"></span>
+                    </div>
+                    @error('nip')
+                    <span class="font-italic text-danger mb-2" role="alert">
+                        <small>{{ $message }}</small>
+                    </span>
+                    @enderror
+
+                    <div class="wrap-input100 validate-input m-t-4" data-validate="full_name is required">
+                        <input class="input100" type="text" id="full_name" name="full_name" placeholder="Nama Lengkap"
+                            class="form-control @error('full_name') is-invalid @enderror" value="{{ old('full_name') }}">
+                        <span class="focus-input100"></span>
+                    </div>
+                    @error('full_name')
+                    <span class="font-italic text-danger mb-2" role="alert">
+                        <small>{{ $message }}</small>
+                    </span>
+                    @enderror
+
+                    <div class="wrap-input100 validate-input m-t-4" data-validate="username is required">
                         <input class="input100" type="text" id="username" name="username" placeholder="Username"
                             class="form-control @error('username') is-invalid @enderror" value="{{ old('username') }}">
                         <span class="focus-input100"></span>
                     </div>
                     @error('username')
-                    <span class="invalid-feedback" role="alert">
-                        {{-- <strong>{{ $message }}</strong> --}}
-                        <strong>pesan error</strong>
+                    <span class="font-italic text-danger mb-2" role="alert">
+                        <small>{{ $message }}</small>
                     </span>
                     @enderror
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Email is required">
+                    <div class="wrap-input100 validate-input m-t-4" data-validate="Email is required">
                         <input class="input100" type="text" id="email" name="email" placeholder="Email"
                             class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}">
                         <span class="focus-input100"></span>
                     </div>
                     @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        {{-- <strong>{{ $message }}</strong> --}}
-                        <strong>pesan error</strong>
+                    <span class="font-italic text-danger mb-2" role="alert">
+                        <small>{{ $message }}</small>
                     </span>
                     @enderror
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Password is required">
+                    <div class="wrap-input100 validate-input m-t-4" data-validate="Password is required">
                         <input class="input100" id="password" type="password" name="password" placeholder="Password"
-                            class="form-control @error('password') is-invalid @enderror">
+                            class="form-control @error('password') is-invalid @enderror" data-toggle="password">
                         <span class="focus-input100"></span>
                     </div>
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        {{-- <strong>{{ $message }}</strong> --}}
-                        <strong>pesan eror</strong>
+                    <span class="font-italic text-danger mb-2" role="alert">
+                        <small>{{ $message }}</small>
                     </span>
                     @enderror
 
-                    <div class="wrap-input100 validate-input m-b-16" data-validate="Confirmation is required">
+                    <div class="wrap-input100 validate-input m-t-4" data-validate="Confirmation is required">
                         <input class="input100" id="password-confirm" type="password" name="password_confirmation"
-                            placeholder="Konfirmasi Password" class="form-control">
+                            placeholder="Konfirmasi Password" class="form-control" data-toggle="password">
                         <span class="focus-input100"></span>
                     </div>
 
@@ -173,4 +192,5 @@
 </div>
 
 <div id="dropDownSelect1"></div>
+
 @endsection

@@ -36,6 +36,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/auth/css') }}/util.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('/auth/css') }}/main.css">
 
+    <!-- Vendor CSS Files -->
+    <script src="{{ asset('/auth/vendor') }}/jquery/jquery-3.2.1.min.js"></script>
+
 </head>
 
 <body>
@@ -97,6 +100,7 @@
     </main>
     </div> --}}
 
+    @include('sweetalert::alert')
     <div id="app">
         <main>
             @yield('content')
@@ -104,7 +108,7 @@
     </div>
 
     <!-- Vendor CSS Files -->
-    <script src="{{ asset('/auth/vendor') }}/jquery/jquery-3.2.1.min.js"></script>
+    {{-- <script src="{{ asset('/auth/vendor') }}/jquery/jquery-3.2.1.min.js"></script> --}}
     <script src="{{ asset('/auth/vendor') }}/animsition/js/animsition.min.js"></script>
     <script src="{{ asset('/auth/vendor') }}/bootstrap/js/popper.js"></script>
     <script src="{{ asset('/auth/vendor') }}/bootstrap/js/bootstrap.min.js"></script>
@@ -118,6 +122,10 @@
 
     <!-- show / hide password -->
     <script src="https://unpkg.com/bootstrap-show-password@1.2.1/dist/bootstrap-show-password.min.js"></script>
+
+    <!-- Sweet Alert 2 -->
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
+    <script src="{{ asset('/vendor') }}/sweetalert/sweetalert.all.js"></script>
 
 </body>
 
