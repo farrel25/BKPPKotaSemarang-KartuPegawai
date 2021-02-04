@@ -6,6 +6,7 @@ use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Alert;
+use App\Employee;
 use Illuminate\Support\Facades\Validator;
 
 class ProposalController extends Controller
@@ -154,7 +155,9 @@ class ProposalController extends Controller
      */
     public function edit(Proposal $proposal)
     {
-        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.edit-pengajuan-kartu-pegawai');
+        $employee = Employee::where('id', $proposal->user->employee_id)->first();
+        // dd($employee->nama);
+        return view('dashboard.kartu_pegawai.pengajuan_kartu_pegawai.edit-pengajuan-kartu-pegawai', compact('proposal', 'employee'));
     }
 
     /**
@@ -166,7 +169,23 @@ class ProposalController extends Controller
      */
     public function update(Request $request, Proposal $proposal)
     {
-        //
+        // dd($request);
+        $attr = $request->validate([
+            'sk_cpns_acc' => 'boolean',
+            'sk_pns_acc' => 'boolean',
+            'sttpl_acc' => 'boolean',
+            'sk_hilang_acc' => 'nullable|boolean',
+            'photo_acc' => 'boolean',
+        ]);
+
+        if (!$request->sk_hilang_acc) {
+            $attr['sk_hilang_acc'] = null;
+        }
+
+        $proposal->update($attr);
+
+        Alert::success('Berhasil', 'Pembuatan kartu pegawai berhasil diperbarui');
+        return redirect()->route('kartu-pegawai.pengajuan-kartu-pegawai');
     }
 
     /**

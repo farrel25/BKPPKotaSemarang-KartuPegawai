@@ -17,9 +17,9 @@
         <div class="main-card mb-3 card">
             <div class="card-header">Pengajuan Kartu Pegawai
                 <div class="btn-actions-pane-right ">
-                    <a type="button"
+                    {{-- <a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="#"><i class="fas fa-trash-alt"></i> Hapus Kartu Pegawai Terpilih</a>
+                        href="#"><i class="fas fa-trash-alt"></i> Hapus Kartu Pegawai Terpilih</a> --}}
                     <a type="button"
                         class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                         href="#"><i class="fas fa-print"></i> Cetak Kartu Pegawai Terpilih</a>
@@ -57,36 +57,25 @@
                             <td class=" text-center">{{ $number + $proposals->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    {{-- <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
-                                    class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                    title="Edit Pengguna " data-placement="bottom">
-                                    <i class="fas fa-edit"></i>
-                                    </a> --}}
-                                    <a href="{{ route('kartu-pegawai.edit-pengajuan-kartu-pegawai') }}"
+                                    <a href="{{ route('kartu-pegawai.edit-pengajuan-kartu-pegawai', $proposal->id) }}"
                                         class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip" title="Edit Kartu "
                                         data-placement="bottom">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form method="POST" action="#">
-                                        <input type="hidden" name="is_active" value="0">
-                                        <button type="submit" class="btn btn-secondary btn-sm mr-1"
-                                            data-toggle="tooltip" title="Download Kartu" data-placement="bottom">
-                                            <i class="fas fa-download"></i>
-                                        </button>
-                                    </form>
-                                    <form method="POST" action="#">
-                                        <input type="hidden" name="is_active" value="1">
-                                        <button type="submit" class="btn btn-alternate btn-sm mr-1"
-                                            data-toggle="tooltip" title="Cetak Kartu" data-placement="bottom">
-                                            <i class="fas fa-print"></i>
-                                        </button>
-                                    </form>
-                                    <form id="delete-form" action="#" method="post">
+                                    <button type="submit" class="btn btn-secondary btn-sm mr-1"
+                                        data-toggle="tooltip" title="Download Kartu" data-placement="bottom">
+                                        <i class="fas fa-download"></i>
+                                    </button>
+                                    <button type="submit" class="btn btn-alternate btn-sm mr-1"
+                                        data-toggle="tooltip" title="Cetak Kartu" data-placement="bottom">
+                                        <i class="fas fa-print"></i>
+                                    </button>
+                                    {{-- <form id="delete-form" action="#" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Kartu" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </td>
                             <td class=" text-center">
@@ -106,8 +95,8 @@
                                 @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
                                 $proposal->sttpl_acc == null && $proposal->photo_acc == null)
                                 <div class="badge badge-primary">Masuk</div>
-                                @elseif($proposal->sk_cpns_acc === 1 || $proposal->sk_pns_acc === 1 ||
-                                $proposal->sttpl_acc === 1 || $proposal->photo_acc === 1)
+                                @elseif($proposal->sk_cpns_acc == null || $proposal->sk_pns_acc == null ||
+                                $proposal->sttpl_acc == null || $proposal->photo_acc == null)
                                 <div class="badge badge-warning text-white">Revisi</div>
                                 @elseif($proposal->sk_cpns_acc === 1 && $proposal->sk_pns_acc === 1 &&
                                 $proposal->sttpl_acc === 1 && $proposal->photo_acc === 1)

@@ -37,8 +37,10 @@ Route::middleware('auth')->group(function () {
 
         // Pengajuan Kartu Pegawai
         Route::get('/pengajuan', 'ProposalController@index')->name('kartu-pegawai.pengajuan-kartu-pegawai');
-        Route::get('/tambah-pengajuan-kartu-pegawai', 'ProposalController@create')->name('kartu-pegawai.tambah-pengajuan-kartu-pegawai');
-        Route::get('/edit-pengajuan-kartu-pegawai', 'ProposalController@edit')->name('kartu-pegawai.edit-pengajuan-kartu-pegawai');
+        // update
+        Route::get('/{proposal}/edit', 'ProposalController@edit')->name('kartu-pegawai.edit-pengajuan-kartu-pegawai');
+        Route::patch('/{proposal}/edit', 'ProposalController@update')->name('kartu-pegawai.update');
+        // Route::get('/tambah-pengajuan-kartu-pegawai', 'ProposalController@create')->name('kartu-pegawai.tambah-pengajuan-kartu-pegawai');
 
         // Kartu Pegawai Selesai
         Route::get('/selesai', 'HistoryEmployeeCardController@index')->name('kartu-pegawai.kartu-pegawai-selesai');
