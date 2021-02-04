@@ -16,7 +16,7 @@ class NotificationController extends Controller
     public function index()
     {
         $proposal = Auth::user()->proposals->first();
-        dd($proposal);
+        // dd($proposal);
         return view('visitor.notifikasi.notifikasi', compact('proposal'));
     }
 
