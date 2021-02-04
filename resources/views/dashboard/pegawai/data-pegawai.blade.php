@@ -17,23 +17,23 @@
         <div class="main-card mb-3 card">
             <div class="card-header">Data Pegawai
                 <div class="btn-actions-pane-right ">
-                    <a type="button"
+                    {{-- <a type="button"
                         class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                         href="#"><i class="fas fa-trash-alt"></i> Hapus Pegawai Terpilih</a>
-                    <a type="button"
-                        class="btn btn-lg btn-alternate btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="#"><i class="fas fa-file-excel"></i>
-                        Cetak Excel
-                    </a>
                     <a type="button"
                         class="btn btn-lg btn-focus btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
                         href="#"><i class="fas fa-file-excel"></i>
                         Tambah Excel
+                    </a> --}}
+                    <a type="button"
+                        class="btn btn-lg btn-danger btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
+                        href="#"><i class="fas fa-file-pdf"></i>
+                        Unduh pdf
                     </a>
                     <a type="button"
                         class="btn btn-lg btn-success btn-sm text-white font-weight-normal m-1 mb-2  btn-responsive"
-                        href="#"><i class="fas fa-plus"></i>
-                        Tambah Pegawai
+                        href="#"><i class="fas fa-file-excel"></i>
+                        Unduh Excel
                     </a>
                 </div>
             </div>
@@ -43,24 +43,24 @@
                         <tr>
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
-                            <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Foto</th>
+                            {{-- <th class=" text-center">Aksi</th>
+                            <th class=" text-center">Foto</th> --}}
                             <th class=" text-center">NIP</th>
                             <th class=" text-center">Nama</th>
-                            <th class=" text-center">Email</th>
-                            <th class=" text-center">Role</th>
-                            <th class=" text-center">Status</th>
+                            {{-- <th class=" text-center">Email</th>
+                            <th class=" text-center">Role</th> --}}
+                            <th class=" text-center">Status Akun</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                        @foreach ($employees as $number => $employee)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="#" value="#">
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">
+                            <td class=" text-center">{{ $number + $employees->firstItem() }}</td>
+                            {{-- <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    {{-- <form method="POST" action="#">
+                                    <form method="POST" action="#">
                                         <input type="hidden" name="is_active" value="0">
                                         <button type="submit" class="btn btn-focus btn-sm mr-1" data-toggle="tooltip"
                                             title="Non Aktifkan Pengguna" data-placement="bottom">
@@ -73,7 +73,7 @@
                                             title="Aktifkan Pengguna" data-placement="bottom">
                                             <i class="fas fa-lock"></i>
                                         </button>
-                                    </form> --}}
+                                    </form>
                                     <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                         title="Edit Pengguna " data-placement="bottom">
                                         <i class="fas fa-edit"></i>
@@ -85,21 +85,24 @@
                                         </button>
                                     </form>
                                 </div>
-                            </td>
-                            <td class=" text-center">
+                            </td> --}}
+                            {{-- <td class=" text-center">
                                 <img src="#" alt="" width="70">
                                 <i>#</i>
-                            </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            </td> --}}
+                            <td class=" text-center">{{ $employee->nip }}</td>
+                            <td class=" text-center">{{ $employee->nama }}</td>
+                            {{-- <td class=" text-center">#</td>
+                            <td class=" text-center">#</td> --}}
                             <td class=" text-center">
+                                @if ($employee->user)
                                 <div class="badge badge-success">Aktif</div>
-                                <br>
+                                @else
                                 <div class="badge badge-secondary text-white">Non Aktif</div>
+                                @endif
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -108,7 +111,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            {{-- {{ $users->links() }} --}}
+                            {{ $employees->links() }}
                         </ul>
                     </nav>
                 </div>

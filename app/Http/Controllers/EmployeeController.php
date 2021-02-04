@@ -14,7 +14,8 @@ class EmployeeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pegawai.data-pegawai');
+        $employees = Employee::paginate(10);
+        return view('dashboard.pegawai.data-pegawai', compact('employees'));
     }
 
     /**
