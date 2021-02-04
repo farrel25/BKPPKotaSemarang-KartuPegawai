@@ -34,23 +34,23 @@
                                 class="float-left img-profile">
                         </div>
                         <div class="col-md-8">
-                            <h5 class="mt-4" style="font-weight: 700;">NIP</h5>
+                            <h5 class="mt-4" style="font-weight: 700;">NIP {{ Auth::user()->employee->nip }}</h5>
                             <hr>
                             <table class="table table-borderless">
                                 <tr class="">
                                     <td> Username </td>
                                     <td class=" ">:</td>
-                                    <td></td>
+                                    <td>{{ Auth::user()->username }}</td>
                                 </tr>
                                 <tr>
                                     <td> Nama </td>
                                     <td>:</td>
-                                    <td></td>
+                                    <td>{{ Auth::user()->employee->nama }}</td>
                                 </tr>
                                 <tr>
                                     <td>Email </td>
                                     <td>:</td>
-                                    <td></td>
+                                    <td>{{ Auth::user()->email }}</td>
                                 </tr>
                             </table>
                             <hr>
@@ -103,6 +103,7 @@
                                     <h5 style="font-weight: 700;">Revisi</h5>
                                     <hr>
                                     <table class="table table-borderless">
+                                        @if ($proposal->sk_cpns_acc == null)
                                         <tr class="">
                                             <td class=" d-block"> File </td>
                                             <td>:</td>
@@ -118,11 +119,14 @@
                                                 aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
                                                 eu fugiat nulla pariatur. Excepteur sint
                                                 occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                                mollit anim id est laborum.</td>
+                                                mollit anim id est laborum.
+                                            </td>
                                         </tr>
+                                        @endif
                                     </table>
                                     <hr>
                                     <table class="table table-borderless">
+                                        @if ($proposal->sk_pns_acc == null)
                                         <tr class="">
                                             <td class=" d-block"> File </td>
                                             <td>:</td>
@@ -140,6 +144,7 @@
                                                 occaecat cupidatat non proident, sunt in culpa qui officia deserunt
                                                 mollit anim id est laborum.</td>
                                         </tr>
+                                        @endif
                                     </table>
                                 </div>
                             </div>

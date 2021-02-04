@@ -31,6 +31,8 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     Route::middleware('permission:Menu Utama')->get('/dashboard', 'DashboardController@index')->name('dashboard');
 
+    // Notification Page
+    Route::get('/notification', 'NotificationController@index')->name('notification');
 
     // Kartu Pegawai
     Route::middleware('permission:Kartu Pegawai')->prefix('/dashboard/kartu-pegawai')->group(function () {
@@ -97,6 +99,3 @@ Route::middleware('auth')->group(function () {
 
 // Landing Page
 Route::get('/', 'HomeController@index')->name('home');
-
-//Notification Page
-Route::get('/notification', 'NotificationController@index')->name('notification');
