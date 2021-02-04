@@ -35,7 +35,7 @@
                             <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
                             <th class=" text-center">No.</th>
                             <th class=" text-center">Aksi</th>
-                            <th class=" text-center">Foto</th>
+                            {{-- <th class=" text-center">Foto</th> --}}
                             <th class=" text-center">NIP</th>
                             <th class=" text-center">Nama</th>
                             <th class=" text-center">Email</th>
@@ -44,10 +44,12 @@
                     </thead>
                     <tbody>
 
+                        @foreach ($users as $number => $user)
                         <tr>
-                            <td class=" text-center"><input type="checkbox" name="#" value="#">
+                            <td class="text-center"><input type="checkbox" name="#" value="#">
                             </td>
-                            <td class=" text-center">#</td>
+                            <td class="text-center">{{ $number + $users->firstItem() }}</td>
+                            @if ($user->roles->first()->name != 'Administrator')
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     <form method="POST" action="#">
@@ -76,15 +78,22 @@
                                     </form>
                                 </div>
                             </td>
-                            <td class=" text-center">
+                            @else
+                            <td class="text-center font-italic">
+                                tidak ada aksi
+                            </td>
+                            @endif
+                            {{-- <td class="text-center">
                                 <img src="#" alt="" width="70">
                                 <i>#</i>
-                            </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            </td> --}}
+                            {{-- {{var_dump($user->employee)}} --}}
+                            <td class="text-center">{{ $user->employee->nip }}</td>
+                            <td class="text-center">{{ $user->employee->nama }}</td>
+                            <td class="text-center">{{ $user->email }}</td>
+                            <td class="text-center">{{ $user->roles->first()->name }}</td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

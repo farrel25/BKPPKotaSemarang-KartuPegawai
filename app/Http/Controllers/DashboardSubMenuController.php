@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\DashboardMenu;
 use App\DashboardSubMenu;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class DashboardSubMenuController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemen_menu.dashboard_sub_menu.sub-menu');
+        $menus = DashboardMenu::get();
+        $subMenus = DashboardSubMenu::paginate(10);
+        return view('dashboard.manajemen_menu.dashboard_sub_menu.sub-menu', compact('menus', 'subMenus'));
     }
 
     /**

@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.manajemen_pengguna.pengguna.pengguna');
+        $users = User::paginate(10);
+        return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users'));
     }
 
     /**

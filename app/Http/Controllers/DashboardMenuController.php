@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Alert;
 use App\DashboardMenu;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 
 class DashboardMenuController extends Controller
 {
@@ -42,6 +43,7 @@ class DashboardMenuController extends Controller
         ]);
 
         DashboardMenu::create($attr);
+        Permission::create($attr);
 
         return redirect()->route('manajemen-menu.menu');
     }
@@ -88,8 +90,13 @@ class DashboardMenuController extends Controller
      */
     public function destroy(DashboardMenu $dashboardMenu)
     {
+        $permission = Permission::where('name', $dashboardMenu->name)->first();
+        // dd($permission);
+
         $dashboardMenu->delete();
-        Alert::success('Berhasil', 'Akun Pengguna berhasil dihapus');
+        $permission->delete();
+
+        Alert::success('Berhasil', 'Menu berhasil dihapus');
         return redirect()->route('manajemen-menu.menu');
     }
 }

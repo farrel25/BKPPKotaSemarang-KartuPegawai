@@ -45,20 +45,24 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($subMenus as $number => $subMenu)
                                 <tr>
                                     <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
                                     </td>
-                                    <td class=" text-center">#</td>
+                                    <td class=" text-center">{{ $number + $subMenus->firstItem() }}</td>
                                     <td class=" text-center">
                                         <div class="d-flex justify-content-center">
+                                            @if ($subMenu->is_active == 1)
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Non Aktifkan Sub Menu" data-placement="bottom">
-                                                <i class="fas fa-unlock"></i>
+                                                <i class="fas fa-lock-open"></i>
                                             </a>
+                                            @else
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Aktifkan Sub Menu" data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
                                             </a>
+                                            @endif
                                             <span data-toggle="modal" data-target="#editSubMenuModal">
                                                 <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                                     title="Edit Sub Menu" data-placement="bottom">
@@ -74,11 +78,12 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">#</td>
-                                    <td class=" text-center">#</td>
+                                    <td class=" text-center">{{ $subMenu->name }}</td>
+                                    <td class=" text-center">{{ $subMenu->dashboardMenu->name }}</td>
+                                    <td class=" text-center">{{ $subMenu->url_path }}</td>
+                                    <td class=" text-center">{{ $subMenu->icon }}</td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -86,7 +91,7 @@
                         <div class="card-body ">
                             <nav class=" " aria-label="Page navigation example">
                                 <ul class="pagination justify-content-center">
-                                    {{-- {{ $articles->links() }} --}}
+                                    {{ $subMenus->links() }}
                                 </ul>
                             </nav>
                         </div>
