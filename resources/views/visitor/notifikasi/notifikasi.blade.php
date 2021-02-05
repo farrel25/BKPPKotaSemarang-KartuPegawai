@@ -76,7 +76,7 @@
 </div>
 
 
-<div class="container mb-4 " id="card-process">
+<div class="container mb-5" id="card-process">
     <div class="row  justify-content-center " id="notification">
         <div class="col-lg-12 ">
             <div class="tab-content" id="myTabContent">
@@ -85,15 +85,27 @@
                         <div class="col-md-3">
                             <div class="card ">
                                 <div class="card-body ">
+                                    <h5 style="font-weight: 700;">Status Pengajuan</h5>
+                                    <hr>
+                                    @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
+                                    $proposal->sttpl_acc == null && $proposal->photo_acc == null)
                                     <h6> <i class=" fa fa-arrow-circle-up mr-2"></i> Pengajuan </h6>
                                     <hr>
-                                    <h6> <i class=" fa fa-tasks mr-2"></i> Diproses </h6>
+                                    @elseif($proposal->is_diambil == 1)
+                                    <h6> <i class=" fa fa-check-circle mr-2"></i> Selesai </h6>
                                     <hr>
-                                    <h6> <i class=" fa fa-print mr-2"></i> Dicetak </h6>
-                                    <hr>
+                                    @elseif($proposal->is_dicetak == 1)
                                     <h6> <i class=" fa fa-hand-holding mr-2"></i> Pengambilan </h6>
                                     <hr>
-                                    <h6> <i class=" fa fa-check-circle mr-2"></i> Selesai </h6>
+                                    @elseif($proposal->sk_cpns_acc == 1 && $proposal->sk_pns_acc == 1 &&
+                                    $proposal->sttpl_acc == 1 && $proposal->photo_acc == 1)
+                                    <h6> <i class=" fa fa-print mr-2"></i> Dicetak </h6>
+                                    <hr>
+                                    @elseif($proposal->sk_cpns_acc == null || $proposal->sk_pns_acc == null ||
+                                    $proposal->sttpl_acc == null || $proposal->photo_acc == null)
+                                    <h6> <i class=" fa fa-tasks mr-2"></i> Revisi </h6>
+                                    <hr>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -102,50 +114,108 @@
                                 <div class="card-body ">
                                     <h5 style="font-weight: 700;">Revisi</h5>
                                     <hr>
-                                    <table class="table table-borderless">
-                                        @if ($proposal->sk_cpns_acc == null)
-                                        <tr class="">
-                                            <td class=" d-block"> File </td>
-                                            <td>:</td>
-                                            <td class="text-danger"> Scan SK PNS</td>
-                                        </tr>
-                                        <tr>
-                                            <td> Pesan </td>
-                                            <td>:</td>
-                                            <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                                laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                                eu fugiat nulla pariatur. Excepteur sint
-                                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                                mollit anim id est laborum.
-                                            </td>
-                                        </tr>
-                                        @endif
-                                    </table>
+                                    @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
+                                    $proposal->sttpl_acc == null && $proposal->photo_acc == null)
+                                    <h6>Tidak ada Revisi</h6>
                                     <hr>
-                                    <table class="table table-borderless">
-                                        @if ($proposal->sk_pns_acc == null)
-                                        <tr class="">
-                                            <td class=" d-block"> File </td>
-                                            <td>:</td>
-                                            <td class="text-danger"> Scan SK PNS</td>
-                                        </tr>
-                                        <tr>
-                                            <td> Pesan </td>
-                                            <td>:</td>
-                                            <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna
-                                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                                laboris nisi ut aliquip ex ea commodo consequat. Duis
-                                                aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                                eu fugiat nulla pariatur. Excepteur sint
-                                                occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                                                mollit anim id est laborum.</td>
-                                        </tr>
+                                    @elseif($proposal->is_diambil == 1)
+                                    <h6>Tidak ada Revisi</h6>
+                                    <hr>
+                                    @elseif($proposal->is_dicetak == 1)
+                                    <h6>Tidak ada Revisi</h6>
+                                    <hr>
+                                    @elseif($proposal->sk_cpns_acc == 1 && $proposal->sk_pns_acc == 1 &&
+                                    $proposal->sttpl_acc == 1 && $proposal->photo_acc == 1)
+                                    <h6>Tidak ada Revisi</h6>
+                                    <hr>
+                                    @else
+                                        @if ($proposal->sk_cpns_acc == null)
+                                        <table class="table table-borderless">
+                                            <tr class="">
+                                                <td class=" d-block"> File </td>
+                                                <td>:</td>
+                                                <td class="text-danger"> Scan SK PNS</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td> Pesan </td>
+                                                <td>:</td>
+                                                <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna
+                                                    aliqua.
+                                                </td>
+                                            </tr> --}}
+                                        </table>
+                                        <hr>
                                         @endif
-                                    </table>
+                                        @if ($proposal->sk_pns_acc == null)
+                                        <table class="table table-borderless">
+                                            <tr class="">
+                                                <td class=" d-block"> File </td>
+                                                <td>:</td>
+                                                <td class="text-danger"> Scan SK PNS</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td> Pesan </td>
+                                                <td>:</td>
+                                                <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna
+                                                    aliqua.</td>
+                                                </tr> --}}
+                                        </table>
+                                        <hr>
+                                        @endif
+                                        @if ($proposal->sttpl_acc == null)
+                                        <table class="table table-borderless">
+                                            <tr class="">
+                                                <td class=" d-block"> File </td>
+                                                <td>:</td>
+                                                <td class="text-danger"> Scan STTPL</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td> Pesan </td>
+                                                <td>:</td>
+                                                <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna
+                                                    aliqua.</td>
+                                            </tr> --}}
+                                        </table>
+                                        <hr>
+                                        @endif
+                                        @if ($proposal->photo_acc == null)
+                                        <table class="table table-borderless">
+                                            <tr class="">
+                                                <td class=" d-block"> File </td>
+                                                <td>:</td>
+                                                <td class="text-danger"> Foto 3x4</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td> Pesan </td>
+                                                <td>:</td>
+                                                <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna
+                                                    aliqua.</td>
+                                            </tr> --}}
+                                        </table>
+                                        <hr>
+                                        @endif
+                                        @if ($proposal->sk_hilang != null && $proposal->sk_hilang_acc == null)
+                                        <table class="table table-borderless">
+                                            <tr class="">
+                                                <td class=" d-block"> File </td>
+                                                <td>:</td>
+                                                <td class="text-danger"> SK Kehilangan</td>
+                                            </tr>
+                                            {{-- <tr>
+                                                <td> Pesan </td>
+                                                <td>:</td>
+                                                <td> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna
+                                                    aliqua.</td>
+                                            </tr> --}}
+                                        </table>
+                                        <hr>
+                                        @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -154,14 +224,32 @@
                                 <div class="card-body ">
                                     <h5 style="font-weight: 700;">Upload File</h5>
                                     <hr>
+                                    @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
+                                    $proposal->sttpl_acc == null && $proposal->photo_acc == null)
+                                    <h6>Tidak ada yang perlu diupload</h6>
+                                    <hr>
+                                    @elseif($proposal->is_diambil == 1)
+                                    <h6>Tidak ada yang perlu diupload</h6>
+                                    <hr>
+                                    @elseif($proposal->is_dicetak == 1)
+                                    <h6>Tidak ada yang perlu diupload</h6>
+                                    <hr>
+                                    @elseif($proposal->sk_cpns_acc == 1 && $proposal->sk_pns_acc == 1 &&
+                                    $proposal->sttpl_acc == 1 && $proposal->photo_acc == 1)
+                                    <h6>Tidak ada yang perlu diupload</h6>
+                                    <hr>
+                                    @else
+                                    @if ($proposal->sk_cpns_acc == null)
                                     <div class="form-group mb-3 ">
-                                        <label for="#" class="mb-2 text-success">Scan SK PNS </label>
+                                        <label for="#" class="mb-2 text-danger">Scan SK PNS </label>
                                         <input name="#" id="#" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
                                     </div>
                                     <hr>
+                                    @endif
+                                    @if ($proposal->sk_pns_acc == null)
                                     <div class="form-group mb-3">
                                         <label for="#" class="mb-2 text-danger">Scan SK CPNS </label>
                                         <input name="#" id="#" type="file" class="form-control-file">
@@ -170,22 +258,28 @@
                                         <br>
                                     </div>
                                     <hr>
-                                    <div class="form-group mb-3 ">
-                                        <label for="#" class="mb-2 text-success">Foto 3x4</label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
-                                        <br>
-                                        <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
-                                        <br>
-                                    </div>
-                                    <hr>
+                                    @endif
+                                    @if ($proposal->sttpl_acc == null)
                                     <div class="form-group mb-3">
-                                        <label for="#" class="mb-2 text-success">Scan STTPL</label>
+                                        <label for="#" class="mb-2 text-danger">Scan STTPL</label>
                                         <input name="#" id="#" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
                                     </div>
                                     <hr>
+                                    @endif
+                                    @if ($proposal->photo_acc == null)
+                                    <div class="form-group mb-3 ">
+                                        <label for="#" class="mb-2 text-danger">Foto 3x4</label>
+                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <br>
+                                        <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
+                                        <br>
+                                    </div>
+                                    <hr>
+                                    @endif
+                                    @if ($proposal->sk_hilang != null && $proposal->sk_hilang_acc == null)
                                     <div class="form-group mb-3">
                                         <label for="#" class="mb-2 text-danger">Surat Keterangan Hilang dari
                                             Kepolisian</label>
@@ -194,6 +288,8 @@
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
                                     </div>
+                                    @endif
+                                    @endif
                                 </div>
                             </div>
                         </div>
