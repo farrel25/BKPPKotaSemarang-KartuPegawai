@@ -241,8 +241,8 @@
                                     @else
                                     @if ($proposal->sk_cpns_acc == null)
                                     <div class="form-group mb-3 ">
-                                        <label for="#" class="mb-2 text-danger">Scan SK PNS </label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <label for="sk_cpns" class="mb-2 text-danger">Scan SK CPNS </label>
+                                        <input name="sk_cpns" id="sk_cpns" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
@@ -251,8 +251,8 @@
                                     @endif
                                     @if ($proposal->sk_pns_acc == null)
                                     <div class="form-group mb-3">
-                                        <label for="#" class="mb-2 text-danger">Scan SK CPNS </label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <label for="sk_pns" class="mb-2 text-danger">Scan SK PNS </label>
+                                        <input name="sk_pns" id="sk_pns" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
@@ -261,8 +261,8 @@
                                     @endif
                                     @if ($proposal->sttpl_acc == null)
                                     <div class="form-group mb-3">
-                                        <label for="#" class="mb-2 text-danger">Scan STTPL</label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <label for="sttpl" class="mb-2 text-danger">Scan STTPL</label>
+                                        <input name="sttpl" id="sttpl" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
@@ -271,8 +271,8 @@
                                     @endif
                                     @if ($proposal->photo_acc == null)
                                     <div class="form-group mb-3 ">
-                                        <label for="#" class="mb-2 text-danger">Foto 3x4</label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <label for="photo" class="mb-2 text-danger">Foto 3x4</label>
+                                        <input name="photo" id="photo" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
@@ -281,9 +281,9 @@
                                     @endif
                                     @if ($proposal->sk_hilang != null && $proposal->sk_hilang_acc == null)
                                     <div class="form-group mb-3">
-                                        <label for="#" class="mb-2 text-danger">Surat Keterangan Hilang dari
+                                        <label for="sk_hilang" class="mb-2 text-danger">Surat Keterangan Hilang dari
                                             Kepolisian</label>
-                                        <input name="#" id="#" type="file" class="form-control-file">
+                                        <input name="sk_hilang" id="sk_hilang" type="file" class="form-control-file">
                                         <br>
                                         <small class="form-text text-muted">Ukuran Maksimal : 3MB</small>
                                         <br>
