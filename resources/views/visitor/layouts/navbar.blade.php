@@ -25,8 +25,13 @@
                         @role('Administrator')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         @endrole
+                        @if (request()->is('notification'))
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
+                        @endif
                         @role('Pegawai')
-                        <li><a href="notification">Pemberitahuan Kartu</a></li>
+                        @if (!request()->is('notification'))
+                        <li><a href="{{ route('notification') }}">Pemberitahuan Kartu</a></li>
+                        @endif
                         @endrole
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}

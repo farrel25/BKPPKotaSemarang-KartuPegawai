@@ -1,4 +1,4 @@
-@extends('visitor.layouts.master', ['title' => 'Kartu Pegawai'])
+@extends('visitor.layouts.master', ['title' => 'Kartu Pegawai - Notifikasi'])
 
 @section('content')
 
