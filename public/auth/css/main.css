@@ -31,7 +31,7 @@ a {
     font-family: Ubuntu-Regular;
     font-size: 14px;
     line-height: 1.7;
-    color: #373139;
+    color: #fff;
     margin: 0px;
     transition: all 0.4s;
     -webkit-transition: all 0.4s;
@@ -45,7 +45,7 @@ a:focus {
 
 a:hover {
     text-decoration: none;
-    color: #000000;
+    color: #ccc;
 }
 
 /*---------------------------------------------*/
@@ -62,7 +62,7 @@ p {
     font-family: Ubuntu-Regular;
     font-size: 14px;
     line-height: 1.7;
-    color: #373139;
+    color: #e6e6e6;
     margin: 0px;
 }
 
@@ -140,15 +140,15 @@ iframe {
     font-family: Ubuntu-Regular;
     font-size: 14px;
     /* color: #827ffe; */
-    /* color: #373139; */
-    color: #373139;
+    /* color: #e6e6e6; */
+    color: #fff;
     /* color: #999999; */
     line-height: 1.4;
 }
 .bg-glass {
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.292);
+    box-shadow: 0 0 1rem 0 rgba(55, 49, 57, 0.292);
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.571);
+    background-color:rgba(255, 255, 255, 0.374);
     backdrop-filter: blur(5px);
     padding: 30px;
 }
@@ -211,7 +211,7 @@ iframe {
     font-family: Ubuntu-Bold;
     font-size: 30px;
     /* color: #000000; */
-    color: #373139;
+    color: #fff;
     line-height: 1.2;
     text-transform: uppercase;
     text-align: center;
@@ -224,9 +224,10 @@ iframe {
 [ Input ]*/
 
 .wrap-input100 {
+    margin: 2% 0;
     width: 100%;
     position: relative;
-    background-color: #e6e6e6;
+    background-color: #fff;
     border: 1px solid transparent;
     border-radius: 4px;
 }
@@ -243,7 +244,7 @@ iframe {
     background: transparent;
     /* height: 62px; */
     height: 36px;
-    padding: 0 20px 0 38px;
+    padding: 0 20px 0 10px;
 }
 /*------------------------------------------------------------------
 [ Focus Input ]*/
@@ -307,7 +308,7 @@ iframe {
 .label-checkbox100 {
     font-family: Ubuntu-Regular;
     font-size: 14px;
-    color: #373139;
+    color: #fff;
     line-height: 1.2;
 
     display: block;

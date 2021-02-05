@@ -130,7 +130,7 @@
                         <span class="focus-input100"></span>
                     </div>
                     @error('email')
-                    <span class="font-italic text-danger mb-2" role="alert">
+                    <span class="font-italic text-danger " role="alert">
                         <small>{{ $message }}</small>
                     </span>
                     @enderror

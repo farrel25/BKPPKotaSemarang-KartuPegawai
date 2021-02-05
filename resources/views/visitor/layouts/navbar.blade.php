@@ -25,8 +25,9 @@
                         @role('Administrator')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         @endrole
+                        @role('Pegawai')
                         <li><a href="notification">Pemberitahuan Kartu</a></li>
-                        <hr>
+                        @endrole
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}
                             <a href="{{ route('logout') }}"

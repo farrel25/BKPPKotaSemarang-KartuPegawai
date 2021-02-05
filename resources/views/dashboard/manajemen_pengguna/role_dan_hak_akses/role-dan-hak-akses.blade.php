@@ -40,8 +40,8 @@
                             <tbody>
                                 @foreach ($roles as $number => $role)
                                 <div id="heading-{{$role->id}}">
-                                    <tr data-toggle="collapse" data-target="#collapse-{{$role->id}}" aria-expanded="true"
-                                        aria-controls="collapse-{{$role->id}}">
+                                    <tr data-toggle="collapse" data-target="#collapse-{{$role->id}}"
+                                        aria-expanded="true" aria-controls="collapse-{{$role->id}}">
                                         <td class=" text-center">{{ $number + 1 }}</td>
                                         <td class=" text-center">
                                             <div class="d-flex justify-content-center">
@@ -133,7 +133,8 @@
     <div class="col-md-6">
         <div class="main-card mb-3 card tab-content">
             @foreach ($roles as $role)
-            <div id="collapse-{{$role->id}}" class="collapse show" aria-labelledby="heading-{{$role->id}}" data-parent="#accordion">
+            <div id="collapse-{{$role->id}}" class="collapse show" aria-labelledby="heading-{{$role->id}}"
+                data-parent="#accordion">
                 <div class="card-header">
                     Hak Akses {{$role->name}}
                 </div>
@@ -148,14 +149,17 @@
                         </thead>
                         <tbody>
                             @php
-                            $checkPermission = \DB::table('role_has_permissions')->where('role_id', $role->id)->pluck('permission_id')->toArray();
+                            $checkPermission = \DB::table('role_has_permissions')->where('role_id',
+                            $role->id)->pluck('permission_id')->toArray();
                             // var_dump($checkPermission);
                             @endphp
                             @foreach ($permissions as $number => $permission)
                             <tr>
                                 <td class=" text-center">{{ $number + 1 }}</td>
                                 <td class=" text-center">{{ $permission->name }}</td>
-                                <td class=" text-center"><input type="checkbox" value="{{ $permission->id }}" name="permission_id[]" {{ in_array($permission->id, $checkPermission) ? 'checked':'' }}>
+                                <td class=" text-center"><input type="checkbox" value="{{ $permission->id }}"
+                                        name="permission_id[]"
+                                        {{ in_array($permission->id, $checkPermission) ? 'checked':'' }}>
                                 </td>
                             </tr>
                             @endforeach

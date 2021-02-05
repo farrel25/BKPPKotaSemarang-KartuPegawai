@@ -62,7 +62,7 @@
                         notifikasi</li>
                 </ol>
             </div>
-            <div class="col-md-4 mt-3">
+            <div class="col-md-4 mt-2">
                 <div class="card " data-aos="fade-up" data-aos-delay="1000">
                     <div class="card-body">
                         <h5 class="card-title" style="font-weight: 600">Detail Penggunaan</h5>
