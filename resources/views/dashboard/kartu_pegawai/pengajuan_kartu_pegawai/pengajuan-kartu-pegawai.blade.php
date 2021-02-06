@@ -92,15 +92,19 @@
                                 {{ $proposal->sk_hilang == null ? "Buat baru":"Penggantian karena hilang" }}
                             </td>
                             <td class=" text-center">
-                                @if ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
+                                @if($proposal->is_diambil == 1)
+                                <div class="badge badge-secondary">Sudah diambil</div>
+                                @elseif($proposal->is_dicetak == 1)
+                                <div class="badge badge-success">sudah dicetak</div>
+                                @elseif ($proposal->sk_cpns_acc == null && $proposal->sk_pns_acc == null &&
                                 $proposal->sttpl_acc == null && $proposal->photo_acc == null)
                                 <div class="badge badge-primary">Masuk</div>
+                                @elseif($proposal->sk_cpns_acc == 1 && $proposal->sk_pns_acc == 1 &&
+                                $proposal->sttpl_acc == 1 && $proposal->photo_acc == 1)
+                                <div class="badge badge-alternate">Proses Cetak</div>
                                 @elseif($proposal->sk_cpns_acc == null || $proposal->sk_pns_acc == null ||
                                 $proposal->sttpl_acc == null || $proposal->photo_acc == null)
                                 <div class="badge badge-warning text-white">Revisi</div>
-                                @elseif($proposal->sk_cpns_acc === 1 && $proposal->sk_pns_acc === 1 &&
-                                $proposal->sttpl_acc === 1 && $proposal->photo_acc === 1)
-                                <div class="badge badge-alternate">Proses Cetak</div>
                                 @endif
                             </td>
                         </tr>
