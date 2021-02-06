@@ -21,7 +21,7 @@
                     <div class="widget-subheading">Total Pegawai</div>
                 </div>
                 <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>100</span></div>
+                    <div class="widget-numbers text-white"><span>{{$countEmployees}}</span></div>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@
                     <div class="widget-subheading">Total Pengguna</div>
                 </div>
                 <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>100</span></div>
+                    <div class="widget-numbers text-white"><span>{{$countUsers}}</span></div>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                     <div class="widget-subheading">Total Pengajuan Kartu</div>
                 </div>
                 <div class="widget-content-right">
-                    <div class="widget-numbers text-white"><span>100</span></div>
+                    <div class="widget-numbers text-white"><span>{{$countProposals}}</span></div>
                 </div>
             </div>
         </div>
@@ -125,7 +125,7 @@
                                                             Pengambilan + Selesai </div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <div class="widget-numbers text-danger">100</div>
+                                                        <div class="widget-numbers text-danger">{{$countProposals}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-progress-wrapper">
@@ -147,18 +147,18 @@
                                                         <div class="widget-subheading">Total Kartu Belum Diproses</div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <div class="widget-numbers text-secondary">10</div>
+                                                        <div class="widget-numbers text-secondary">{{$countProposalIn}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-progress-wrapper">
                                                     <div class="progress-bar-lg progress-bar-animated progress">
                                                         <div class="progress-bar progress-bar-animated bg-secondary progress-bar-striped"
-                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                            aria-valuemax="100" style="width: 10%;">10%
+                                                            role="progressbar" aria-valuenow="{{$percentageProposalIn}}" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: {{$percentageProposalIn}}%;">{{$percentageProposalIn}}%
                                                         </div>
                                                     </div>
                                                     <div class="progress-sub-label">
-                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-left">persentase</div>
                                                         <div class="sub-label-right">100%</div>
                                                     </div>
                                                 </div>
@@ -175,17 +175,17 @@
                                                         </div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <div class="widget-numbers text-alternate">10</div>
+                                                        <div class="widget-numbers text-alternate">{{$countProposalProcess}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-progress-wrapper">
                                                     <div class="progress-bar-lg progress-bar-animated progress">
                                                         <div class="progress-bar progress-bar-animated bg-alternate progress-bar-striped"
-                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                            aria-valuemax="100" style="width: 10%;">10%</div>
+                                                            role="progressbar" aria-valuenow="{{$percentageProposalProcess}}" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: {{$percentageProposalProcess}}%;">{{$percentageProposalProcess}}%</div>
                                                     </div>
                                                     <div class="progress-sub-label">
-                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-left">persentase</div>
                                                         <div class="sub-label-right">100%</div>
                                                     </div>
                                                 </div>
@@ -201,18 +201,18 @@
                                                         <div class="widget-subheading">Total Kartu Belum Diambil</div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <div class="widget-numbers text-warning">10</div>
+                                                        <div class="widget-numbers text-warning">{{$countProposalPrinted}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-progress-wrapper">
                                                     <div class="progress-bar-lg progress-bar-animated progress">
                                                         <div class="progress-bar progress-bar-animated bg-warning progress-bar-striped"
-                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
-                                                            aria-valuemax="100" style="width: 10%;">10%
+                                                            role="progressbar" aria-valuenow="{{$percentageProposalPrinted}}" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: {{$percentageProposalPrinted}}%;">{{$percentageProposalPrinted}}%
                                                         </div>
                                                     </div>
                                                     <div class="progress-sub-label">
-                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-left">persentase</div>
                                                         <div class="sub-label-right">100%</div>
                                                     </div>
                                                 </div>
@@ -225,20 +225,20 @@
                                                 <div class="widget-content-wrapper">
                                                     <div class="widget-content-left">
                                                         <div class="widget-heading">Selesai</div>
-                                                        <div class="widget-subheading">Total Kartu Sudah DIambil</div>
+                                                        <div class="widget-subheading">Total Kartu Sudah Diambil</div>
                                                     </div>
                                                     <div class="widget-content-right">
-                                                        <div class="widget-numbers text-success">70</div>
+                                                        <div class="widget-numbers text-success">{{$countProposalFinished}}</div>
                                                     </div>
                                                 </div>
                                                 <div class="widget-progress-wrapper">
                                                     <div class="progress-bar-lg progress-bar-animated progress">
                                                         <div class="progress-bar progress-bar-animated bg-success progress-bar-striped"
-                                                            role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                                                            aria-valuemax="100" style="width: 70%;">70%</div>
+                                                            role="progressbar" aria-valuenow="{{$percentageProposalFinished}}" aria-valuemin="0"
+                                                            aria-valuemax="100" style="width: {{$percentageProposalFinished}}%;">{{$percentageProposalFinished}}%</div>
                                                     </div>
                                                     <div class="progress-sub-label">
-                                                        <div class="sub-label-left">presentase</div>
+                                                        <div class="sub-label-left">persentase</div>
                                                         <div class="sub-label-right">100%</div>
                                                     </div>
                                                 </div>

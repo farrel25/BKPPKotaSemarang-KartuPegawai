@@ -320,7 +320,7 @@
                                             </div>
                                             @endif
                                             <div class="text-center">
-                                                <button type="submit" class="mt-2 btn btn-warning" style="padding-left: 72px; padding-right: 72px; color:#fff">Kirim</button>
+                                                <button type="submit" class="mt-2 btn btn-warning" style="width: 100%; padding-left: 20px; padding-right: 20px; color:#fff">Kirim</button>
                                             </div>
                                         </form>
                                     @endif
