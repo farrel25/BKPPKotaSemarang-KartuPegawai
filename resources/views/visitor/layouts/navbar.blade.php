@@ -25,14 +25,13 @@
                         @role('Administrator')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                         @endrole
-                        @if (request()->is('notification'))
-                        <li><a href="{{ route('home') }}">Beranda</a></li>
-                        @endif
-                        @role('Pegawai')
+                        {{-- @role('Pegawai') --}}
                         @if (!request()->is('notification'))
                         <li><a href="{{ route('notification') }}">Pemberitahuan Kartu</a></li>
+                        @else
+                        <li><a href="{{ route('home') }}">Beranda</a></li>
                         @endif
-                        @endrole
+                        {{-- @endrole --}}
                         <li>
                             {{-- <a href="{{ route('logout') }}">Logout</a> --}}
                             <a href="{{ route('logout') }}"

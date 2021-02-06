@@ -32,14 +32,18 @@ Route::middleware('auth')->group(function () {
     Route::middleware('permission:Menu Utama')->get('/dashboard', 'DashboardController@index')->name('dashboard');
 
     // Notification Page
-    Route::get('/notification', 'NotificationController@index')->name('notification');
+    Route::prefix('/notification')->group(function () {
+        Route::get('', 'NotificationController@index')->name('notification');
+        // update file upload
+        Route::patch('/{proposal}/revisi', 'ProposalController@revise')->name('kartu-pegawai.revise');
+    });
 
     // Kartu Pegawai
     Route::middleware('permission:Kartu Pegawai')->prefix('/dashboard/kartu-pegawai')->group(function () {
 
         // Pengajuan Kartu Pegawai
         Route::get('/pengajuan', 'ProposalController@index')->name('kartu-pegawai.pengajuan-kartu-pegawai');
-        // update
+        // update acc
         Route::get('/{proposal}/edit', 'ProposalController@edit')->name('kartu-pegawai.edit-pengajuan-kartu-pegawai');
         Route::patch('/{proposal}/edit', 'ProposalController@update')->name('kartu-pegawai.update');
         // download sk cpns

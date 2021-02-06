@@ -189,6 +189,82 @@ class ProposalController extends Controller
         return redirect()->route('kartu-pegawai.pengajuan-kartu-pegawai');
     }
 
+    public function revise(Request $request, Proposal $proposal)
+    {
+        $userId = Auth::user()->id;
+        $userNIP = Auth::user()->employee->nip;
+
+        $validator = Validator::make($request->all(), [
+            'sk_cpns' => 'file|mimes:pdf|max:3000',
+            'sk_pns' => 'file|mimes:pdf|max:3000',
+            'sttpl' => 'file|mimes:pdf|max:3000',
+            'sk_hilang' => 'file|mimes:pdf|max:3000',
+            'photo' => 'image|mimes:png,jpg,jpeg|max:1000',
+        ]);
+
+        // dd($proposal->sk_cpns_acc);
+
+        if ($validator->fails()) {
+            Alert::error('update data gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return redirect(route('notification'))
+                ->withErrors($validator)
+                ->withInput();
+        } else {
+            $attr = null;
+            if ($request->file('sk_cpns')) {
+                // hapus sk cpns lama
+                \Storage::delete($proposal->sk_cpns);
+                $skCpnsFileName = $userNIP . '_sk_cpns_' . time() . '.' . $request->file('sk_cpns')->getClientOriginalExtension();
+                $skCpnsUrl = $request->file('sk_cpns')->storeAs("document/sk_cpns", "{$skCpnsFileName}");
+                $attr['sk_cpns'] = $skCpnsUrl;
+            }
+
+            if ($request->file('sk_pns')) {
+                // hapus sk pns lama
+                \Storage::delete($proposal->sk_pns);
+                $skPnsFileName = $userNIP . '_sk_pns_' . time() . '.' . $request->file('sk_pns')->getClientOriginalExtension();
+                $skPnsUrl = $request->file('sk_pns')->storeAs("document/sk_pns", "{$skPnsFileName}");
+                $attr['sk_pns'] = $skPnsUrl;
+            }
+
+            if ($request->file('sttpl')) {
+                // hapus sttpl lama
+                \Storage::delete($proposal->sttpl);
+                $sttplFileName = $userNIP . '_sttpl_' . time() . '.' . $request->file('sttpl')->getClientOriginalExtension();
+                $sttplUrl = $request->file('sttpl')->storeAs("document/sttpl", "{$sttplFileName}");
+                $attr['sttpl'] = $sttplUrl;
+            }
+
+            if ($request->file('sk_hilang')) {
+                // hapus sk hilang lama
+                \Storage::delete($proposal->sk_hilang);
+                $skHilangFileName = $userNIP . '_sk_hilang_' . time() . '.' . $request->file('sk_hilang')->getClientOriginalExtension();
+                $skHilangUrl = $request->file('sk_hilang')->storeAs("document/sk_hilang", "{$skHilangFileName}");
+                $attr['sk_hilang'] = $skHilangUrl;
+            }
+
+            if ($request->file('photo')) {
+                // hapus foto lama
+                \Storage::delete($proposal->photo);
+                $photoFileName = $userNIP . '_photo_' . time() . '.' . $request->file('photo')->getClientOriginalExtension();
+                $photoUrl = $request->file('photo')->storeAs("images/photo", "{$photoFileName}");
+                $attr['photo'] = $photoUrl;
+            }
+
+            if ($attr) {
+                $attr['user_id'] = $userId;
+                $proposal->update($attr);
+                Alert::success(' Berhasil ', ' Data revisi berhasil Dikirim');
+            } else {
+                Alert::error(' Gagal ', 'Anda belum memilih file untuk dikirim');
+            }
+
+            return redirect()->route('notification');
+        }
+
+        // return redirect()->route('notification');
+    }
+
     /**
      * Remove the specified resource from storage.
      *
