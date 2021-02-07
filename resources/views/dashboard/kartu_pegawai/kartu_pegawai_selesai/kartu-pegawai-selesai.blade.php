@@ -39,17 +39,18 @@
                             <th class=" text-center">NIP</th>
                             <th class=" text-center">Tgl Pengajuan</th>
                             <th class=" text-center">Tgl Selesai</th>
-                            <th class=" text-center">Jumlah Cetak</th>
-                            <th class=" text-center">Jumlah Revisi</th>
+                            {{-- <th class=" text-center">Jumlah Cetak</th> --}}
+                            {{-- <th class=" text-center">Jumlah Revisi</th> --}}
                             {{-- <th class=" text-center">SK STTPL</th>
                             <th class=" text-center">Status</th> --}}
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($finishedProposals as $number => $proposal)
                         <tr>
                             <td class=" text-center"><input type="checkbox" name="#" value="#">
                             </td>
-                            <td class=" text-center">#</td>
+                            <td class=" text-center">{{ $number + $finishedProposals->firstItem() }}</td>
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
                                     {{-- <a href="{{route('manajemen-pengguna.pengguna-edit')}}"
@@ -84,14 +85,18 @@
                                 </div>
                             </td>
                             <td class=" text-center">
-                                <img src="#" alt="" width="70">
-                                <i>#</i>
+                                <img src="{{ asset('storage/' . $proposal->photo) }}" alt="" width="70">
                             </td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
-                            <td class=" text-center">#</td>
+                            @php
+                            $employeeId = $proposal->user->employee_id;
+                            $employeeData = \DB::table('employees')->where('id', $employeeId)->first();
+                            // var_dump($employeeData);
+                            @endphp
+                            <td class=" text-center">{{ $employeeData->nama }}</td>
+                            <td class=" text-center">{{ $employeeData->nip }}</td>
+                            <td class=" text-center">{{ date('d-M-Y', strtotime($proposal->created_at)) }}</td>
+                            <td class=" text-center">{{ date('d-M-Y', strtotime($proposal->updated_at)) }}</td>
+                            {{-- <td class=" text-center">#</td> --}}
                             {{-- <td class=" text-center">#</td>
                             <td class=" text-center">
                                 <div class="badge badge-primary">Masuk</div>
@@ -103,6 +108,7 @@
                                 <div class="badge badge-success">Selesai</div>
                             </td> --}}
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -110,7 +116,7 @@
                 <div class="card-body ">
                     <nav class=" " aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            {{-- {{ $users->links() }} --}}
+                            {{ $finishedProposals->links() }}
                         </ul>
                     </nav>
                 </div>
