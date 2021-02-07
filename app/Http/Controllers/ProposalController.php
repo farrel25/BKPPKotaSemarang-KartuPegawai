@@ -177,7 +177,20 @@ class ProposalController extends Controller
             'sttpl_acc' => 'boolean',
             'sk_hilang_acc' => 'nullable|boolean',
             'photo_acc' => 'boolean',
+            'is_dicetak' => 'nullable',
+            'is_diambil' => 'nullable',
         ]);
+
+        $attr['is_dicetak'] = null;
+        $attr['is_diambil'] = null;
+
+        if ($request->has('is_dicetak')) {
+            $attr['is_dicetak'] = 1;
+        }
+
+        if ($request->has('is_diambil')) {
+            $attr['is_diambil'] = 1;
+        }
 
         if (!$request->sk_hilang_acc) {
             $attr['sk_hilang_acc'] = null;

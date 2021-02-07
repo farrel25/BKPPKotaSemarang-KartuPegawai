@@ -65,17 +65,17 @@
 
                 <div tabindex="-1" class="dropdown-divider"></div>
 
-                <div class="row">
-                    <div class=" col-lg-2 mb-2 mt-1">
-                        <h4 class="card-title font-weight-bold">Data Upload</h4>
-                        <hr>
-                    </div>
 
-                    <div class="col-lg-10">
-                        <form action="{{ route('kartu-pegawai.update', $proposal->id) }}" method="post">
-                            @csrf
-                            @method('patch')
+                <form action="{{ route('kartu-pegawai.update', $proposal->id) }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="row">
+                        <div class=" col-lg-2 mb-2 mt-1">
+                            <h4 class="card-title font-weight-bold">Data Upload</h4>
+                            <hr>
+                        </div>
 
+                        <div class="col-lg-10">
                             <div class="no-gutters row">
 
                                 <div class="col-md-3 mb-3">
@@ -212,11 +212,33 @@
                                 </div>
 
                             </div>
+
+                        </div>
+                    </div>
+
+                    <div tabindex="-1" class="dropdown-divider"></div>
+
+                    <div class="row">
+                        <div class=" col-lg-2 mb-2 mt-1">
+                            <h4 class="card-title font-weight-bold">Status</h4>
+                            <hr>
+                        </div>
+                        <div class="col-lg-10 mt-1 mb-2">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="is_dicetak" name="is_dicetak" value="1" {{ $proposal->is_dicetak == null ? '':'checked' }}>
+                                <label class="custom-control-label" for="is_dicetak">Sudah dicetak</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mt-1 mb-3">
+                                <input type="checkbox" class="custom-control-input" id="is_diambil" name="is_diambil" value="1" {{ $proposal->is_diambil == null ? '':'checked' }}>
+                                <label class="custom-control-label" for="is_diambil">Sudah diambil</label>
+                            </div>
+
                             <button type="submit" class="mt-2 btn btn-primary">Simpan Data</button>
                             <a href="{{ route('kartu-pegawai.pengajuan-kartu-pegawai') }}" class="mt-2 btn btn-outline-danger">Batal</a>
-                        </form>
+                        </div>
                     </div>
-                </div>
+
+                </form>
             </div>
         </div>
     </div>
