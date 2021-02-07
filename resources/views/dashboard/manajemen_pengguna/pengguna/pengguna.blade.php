@@ -66,10 +66,10 @@
                                             <i class="fas fa-lock"></i>
                                         </button>
                                     </form>
-                                    {{-- <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                    <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                         title="Edit Pengguna " data-placement="bottom">
                                         <i class="fas fa-edit"></i>
-                                    </a> --}}
+                                    </a>
                                     <form id="delete-form" action="#" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Pengguna" data-placement="bottom">
