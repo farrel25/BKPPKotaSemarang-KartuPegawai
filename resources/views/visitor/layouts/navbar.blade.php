@@ -16,8 +16,12 @@
                     <a href="#tata-cara ">Tata Cara</a>
                 </li>
                 <li class="">
+                    <a href="#team" id="anggota">Anggota</a>
+                </li>
+                <li class="">
                     <a href="#faq" id="pertanyaan">Pertanyaan</a>
                 </li>
+
                 @auth
                 <li class="drop-down ml-auto">
                     <a>Hai, {{ Auth::user()->username }}</a>
