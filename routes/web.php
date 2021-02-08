@@ -82,7 +82,11 @@ Route::middleware('auth')->group(function () {
         });
 
         // SubMenu
-        Route::get('/dashboard-sub-menu', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
+        Route::prefix('/dashboard-sub-menu')->group(function () {
+            Route::get('', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
+            // store
+            Route::post('/tambah', 'DashboardSubMenuController@store')->name('manajemen-menu.sub-menu.store');
+        });
     });
 
 

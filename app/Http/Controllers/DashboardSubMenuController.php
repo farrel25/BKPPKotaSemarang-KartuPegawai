@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\DashboardMenu;
 use App\DashboardSubMenu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class DashboardSubMenuController extends Controller
 {
@@ -38,7 +40,30 @@ class DashboardSubMenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'dashboard_menu_id' => 'required|numeric',
+            'name' => 'required|string',
+            'url_path' => 'required|string',
+            'icon' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $attr['dashboard_menu_id'] = $request->dashboard_menu_id;
+        $attr['name'] = $request->name;
+        $attr['url_path'] = $request->url_path;
+        $attr['icon'] = $request->icon;
+        $attr['is_active'] = 1;
+
+        DashboardSubMenu::create($attr);
+
+        Alert::success('Berhasil', 'SubMenu baru berhasil ditambahkan');
+        return back();
     }
 
     /**

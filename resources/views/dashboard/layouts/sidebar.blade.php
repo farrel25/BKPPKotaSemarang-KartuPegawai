@@ -55,6 +55,7 @@
                 'dashboard_sub_menus.icon', 'dashboard_sub_menus.is_active')
                 ->join('dashboard_menus', 'dashboard_sub_menus.dashboard_menu_id', '=', 'dashboard_menus.id')
                 ->where('dashboard_sub_menus.dashboard_menu_id', $menu->id)
+                ->where('dashboard_sub_menus.is_active', 1)
                 ->get();
                 @endphp
 
