@@ -43,21 +43,35 @@
                                     <tr data-toggle="collapse" data-roleId="{{$role->id}}" data-target="#collapse-{{$role->id}}" aria-expanded="true" aria-controls="collapse-{{$role->id}}">
                                         <td class="text-center">{{ $number + 1 }}</td>
                                         <td class="text-center">
-                                            <div class="d-flex justify-content-center">
-                                                <span data-toggle="modal" data-target="#editRoleModal">
-                                                    <a href="#" class="btn btn-primary btn-sm mr-1 "
-                                                        data-toggle="tooltip" title="Edit Role" data-placement="bottom">
-                                                        <i class="fas fa-edit"></i>
-                                                    </a>
-                                                </span>
-                                                <form id="delete-form" action="#" method="post">
-                                                    <button type="submit" class="btn btn-danger btn-sm mr-1"
-                                                        data-toggle="tooltip" title="Hapus Role"
-                                                        data-placement="bottom">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
+                                            @if ($role->name == 'Administrator')
+                                                <i>
+                                                    Aksi tidak tersedia
+                                                </i>
+                                            @else
+                                                <div class="d-flex justify-content-center">
+                                                    <span
+                                                        class="editRoleModal"
+                                                        data-toggle="modal"
+                                                        data-target="#editRoleModal"
+                                                        data-id="{{ $role->id }}"
+                                                        data-name="{{ $role->name }}"
+                                                    >
+                                                        <button class="btn btn-primary btn-sm mr-1 "
+                                                            data-toggle="tooltip" title="Edit Role" data-placement="bottom">
+                                                            <i class="fas fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <form id="delete-role-form" action="{{ route('manajemen-pengguna.role-dan-hak-akses.destroy-role', $role->id) }}" method="post">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger btn-sm mr-1"
+                                                            data-toggle="tooltip" title="Hapus Role"
+                                                            data-placement="bottom">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            @endif
                                         </td>
                                         <td class="text-center">{{ $role->name }}</td>
                                     </tr>
@@ -221,5 +235,40 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).on("click", ".editRoleModal", function () {
+        const id = $(this).data('id');
+        const name = $(this).data('name');
+        $("#editRoleModal .modal-body #id").val(id);
+        $("#editRoleModal .modal-body #name").val(name);
+    });
+
+    $(document).on('click', '#delete-role-form', function(e) {
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data Tidak Akan Kembali ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan',
+                    'error'
+                )
+            }
+        })
+    });
+</script>
 
 @endsection

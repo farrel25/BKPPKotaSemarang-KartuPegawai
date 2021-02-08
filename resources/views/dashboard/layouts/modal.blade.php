@@ -263,6 +263,8 @@
 
 {{-- Role Modal --}}
 <section id="Role">
+
+    {{-- STORE NEW ROLE --}}
     <div class="modal fade" id="addRoleModal" tabindex="-1" role="dialog" aria-labelledby="addRoleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -273,19 +275,29 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="form-label" for="#">Role</label>
-                        <input id="#" type="text" class="form-control" placeholder="Isi Role ..." />
+                <form action="{{ route('manajemen-pengguna.role-dan-hak-akses.store-role') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Role</label>
+                            <input id="name" name="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..." />
+                            @error('name')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                    <button type="button" class="btn btn-primary">Simpan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
+
+    {{-- UPDATE ROLE --}}
     <div class="modal fade" id="editRoleModal" tabindex="-1" role="dialog" aria-labelledby="editRoleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -296,16 +308,26 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="form-label" for="#">Role</label>
-                        <input id="#" type="text" class="form-control" placeholder="Isi Role ..." />
+                <form action="{{ route('manajemen-pengguna.role-dan-hak-akses.update-role') }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="modal-body">
+                        <input type="hidden" id="id" name="id" value="">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Role</label>
+                            <input id="name" name="name" value="" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Isi Role ..." />
+                            @error('name')
+                                <span class="invalid-feedback mt-2" role="alert">
+                                    <i>{{ $message }}</i>
+                                </span>
+                            @enderror
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

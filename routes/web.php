@@ -73,24 +73,24 @@ Route::middleware('auth')->group(function () {
         // Menu
         Route::prefix('/dashboard-menu')->group(function () {
             Route::get('', 'DashboardMenuController@index')->name('manajemen-menu.menu');
-            // store
+            // Store
             Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-menu.store');
-            // update
+            // Update
             Route::patch('/edit', 'DashboardMenuController@update')->name('manajemen-menu.update');
-            // delete
+            // Destroy
             Route::delete('/{dashboard_menu}/hapus', 'DashboardMenuController@destroy')->name('manajemen-menu.destroy');
         });
 
         // SubMenu
         Route::prefix('/dashboard-sub-menu')->group(function () {
             Route::get('', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
-            // store
+            // Store
             Route::post('/tambah', 'DashboardSubMenuController@store')->name('manajemen-menu.sub-menu.store');
-            // update
+            // Update
             Route::patch('/edit', 'DashboardSubMenuController@update')->name('manajemen-menu.sub-menu.update');
-            // activation
+            // Activation
             Route::patch('/{dashboard_sub_menu}/aktivasi', 'DashboardSubMenuController@activation')->name('manajemen-menu.sub-menu.activation');
-            // delete
+            // Destroy
             Route::delete('/{dashboard_sub_menu}/hapus', 'DashboardSubMenuController@destroy')->name('manajemen-menu.sub-menu.destroy');
         });
     });
@@ -102,19 +102,25 @@ Route::middleware('auth')->group(function () {
         // Akun Pengguna
         Route::prefix('/akun')->group(function () {
             Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
-            // change role
+            // Change Role
             Route::post('/ubah-role', 'UserController@changeRole')->name('manajemen-pengguna.akun-pengguna.change-role');
-            // activation
+            // Activation
             Route::patch('/{user}/aktivasi', 'UserController@activation')->name('manajemen-pengguna.akun-pengguna.activation');
-            // delete
+            // Destroy
             Route::delete('/{user}/hapus', 'UserController@destroy')->name('manajemen-pengguna.akun-pengguna.destroy');
-            // store
+            // Store
             Route::get('/tambah-pengguna', 'UserController@create')->name('manajemen-pengguna.tambah-pengguna');
         });
 
         // Role Dan Hak Akses
         Route::prefix('/role-dan-hak-akses')->group(function () {
             Route::get('', 'UserRoleAccessController@index')->name('manajemen-pengguna.role-dan-hak-akses');
+            // Store Role
+            Route::post('/tambah-role', 'UserRoleAccessController@store')->name('manajemen-pengguna.role-dan-hak-akses.store-role');
+            // Update Role
+            Route::patch('/tambah-role', 'UserRoleAccessController@update')->name('manajemen-pengguna.role-dan-hak-akses.update-role');
+            // Destroy Role
+            Route::delete('/{role}/hapus-role', 'UserRoleAccessController@destroyRole')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role');
         });
     });
 });
