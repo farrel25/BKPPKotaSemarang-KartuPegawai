@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Proposal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Employee;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -226,7 +226,7 @@ class ProposalController extends Controller
             $attr = null;
             if ($request->file('sk_cpns')) {
                 // hapus sk cpns lama
-                \Storage::delete($proposal->sk_cpns);
+                Storage::delete($proposal->sk_cpns);
                 $skCpnsFileName = $userNIP . '_sk_cpns_' . time() . '.' . $request->file('sk_cpns')->getClientOriginalExtension();
                 $skCpnsUrl = $request->file('sk_cpns')->storeAs("document/sk_cpns", "{$skCpnsFileName}");
                 $attr['sk_cpns'] = $skCpnsUrl;
@@ -234,7 +234,7 @@ class ProposalController extends Controller
 
             if ($request->file('sk_pns')) {
                 // hapus sk pns lama
-                \Storage::delete($proposal->sk_pns);
+                Storage::delete($proposal->sk_pns);
                 $skPnsFileName = $userNIP . '_sk_pns_' . time() . '.' . $request->file('sk_pns')->getClientOriginalExtension();
                 $skPnsUrl = $request->file('sk_pns')->storeAs("document/sk_pns", "{$skPnsFileName}");
                 $attr['sk_pns'] = $skPnsUrl;
@@ -242,7 +242,7 @@ class ProposalController extends Controller
 
             if ($request->file('sttpl')) {
                 // hapus sttpl lama
-                \Storage::delete($proposal->sttpl);
+                Storage::delete($proposal->sttpl);
                 $sttplFileName = $userNIP . '_sttpl_' . time() . '.' . $request->file('sttpl')->getClientOriginalExtension();
                 $sttplUrl = $request->file('sttpl')->storeAs("document/sttpl", "{$sttplFileName}");
                 $attr['sttpl'] = $sttplUrl;
@@ -250,7 +250,7 @@ class ProposalController extends Controller
 
             if ($request->file('sk_hilang')) {
                 // hapus sk hilang lama
-                \Storage::delete($proposal->sk_hilang);
+                Storage::delete($proposal->sk_hilang);
                 $skHilangFileName = $userNIP . '_sk_hilang_' . time() . '.' . $request->file('sk_hilang')->getClientOriginalExtension();
                 $skHilangUrl = $request->file('sk_hilang')->storeAs("document/sk_hilang", "{$skHilangFileName}");
                 $attr['sk_hilang'] = $skHilangUrl;
@@ -258,7 +258,7 @@ class ProposalController extends Controller
 
             if ($request->file('photo')) {
                 // hapus foto lama
-                \Storage::delete($proposal->photo);
+                Storage::delete($proposal->photo);
                 $photoFileName = $userNIP . '_photo_' . time() . '.' . $request->file('photo')->getClientOriginalExtension();
                 $photoUrl = $request->file('photo')->storeAs("images/photo", "{$photoFileName}");
                 $attr['photo'] = $photoUrl;

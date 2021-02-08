@@ -17,14 +17,16 @@ class UserSeeder extends Seeder
             'employee_id' => null,
             'username' => 'admin',
             'email' => 'admin@gmail.com',
-            'password' => Hash::make('1234')
+            'password' => Hash::make('1234'),
+            'is_active' => 1
         ])->assignRole('Administrator');
 
         User::create([
             'employee_id' => null,
             'username' => 'pegawai',
             'email' => 'pegawai@gmail.com',
-            'password' => Hash::make('1234')
+            'password' => Hash::make('1234'),
+            'is_active' => 1
         ])->assignRole('Pegawai');
     }
 }

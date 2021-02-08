@@ -32,14 +32,15 @@
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                     <thead>
                         <tr>
-                            <th class=" text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
-                            <th class=" text-center">No.</th>
-                            <th class=" text-center">Aksi</th>
-                            {{-- <th class=" text-center">Foto</th> --}}
-                            <th class=" text-center">NIP</th>
-                            <th class=" text-center">Nama</th>
-                            <th class=" text-center">Email</th>
-                            <th class=" text-center">Role</th>
+                            <th class="text-center"><input type="checkbox" onchange="checkAll(this)" name="chk[]"></th>
+                            <th class="text-center">No.</th>
+                            <th class="text-center">Aksi</th>
+                            {{-- <th class="text-center">Foto</th> --}}
+                            <th class="text-center">NIP</th>
+                            <th class="text-center">Nama</th>
+                            <th class="text-center">Username</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Role</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,38 +50,43 @@
                             <td class="text-center"><input type="checkbox" name="#" value="#">
                             </td>
                             <td class="text-center">{{ $number + $users->firstItem() }}</td>
-                            @if ($user->roles->first()->name != 'Administrator')
+                            @if ($user->roles->first()->name == 'Administrator' && $user->id == 1)
+                            <td class="text-center font-italic">
+                                tidak ada aksi
+                            </td>
+                            @else
                             <td class=" text-center">
                                 <div class="d-flex justify-content-center">
-                                    <form method="POST" action="#">
-                                        <input type="hidden" name="is_active" value="0">
-                                        <button type="submit" class="btn btn-focus btn-sm mr-1" data-toggle="tooltip"
-                                            title="Non Aktifkan Pengguna" data-placement="bottom">
-                                            <i class="fas fa-lock-open"></i>
+                                    <form method="POST" action="{{ route('manajemen-pengguna.akun-pengguna.activation', $user->id) }}">
+                                        @csrf
+                                        @method('patch')
+                                        <input type="hidden" name="is_active" value="{{ $user->is_active == 1 ? 0:1 }}">
+                                        <button type="submit" class="btn btn-focus btn-sm mr-1"
+                                            data-toggle="tooltip" title="{{ $user->is_active == 1 ? 'Non Aktifkan Pengguna':'Aktifkan Pengguna' }}" data-placement="bottom">
+                                            <i class="fas {{ $user->is_active == 1 ? 'fa-lock-open':'fa-lock' }}"></i>
                                         </button>
+                                        @error('is_active')
+                                        <span class="invalid-feedback mt-2" role="alert">
+                                            <i>{{ $message }}</i>
+                                        </span>
+                                        @enderror
                                     </form>
-                                    <form method="POST" action="#">
-                                        <input type="hidden" name="is_active" value="1">
-                                        <button type="submit" class="btn btn-focus btn-sm mr-1" data-toggle="tooltip"
-                                            title="Aktifkan Pengguna" data-placement="bottom">
-                                            <i class="fas fa-lock"></i>
+                                    <span class="editUserRoleModal" data-toggle="modal" data-target="#editUserRoleModal" data-id="{{$user->id}}" data-roleid="{{$user->roles->first()->id}}">
+                                        <button class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                            title="Ubah role pengguna " data-placement="bottom">
+                                            <i class="fas fa-edit"></i>
                                         </button>
-                                    </form>
-                                    <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
-                                        title="Edit Pengguna " data-placement="bottom">
-                                        <i class="fas fa-edit"></i>
-                                    </a>
-                                    <form id="delete-form" action="#" method="post">
-                                        <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
-                                            title="Hapus Pengguna" data-placement="bottom">
+                                    </span>
+                                    <form id="delete-user-form" action="{{ route('manajemen-pengguna.akun-pengguna.destroy', $user->id) }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm mr-1"
+                                            data-toggle="tooltip" title="Hapus Pengguna"
+                                            data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </form>
                                 </div>
-                            </td>
-                            @else
-                            <td class="text-center font-italic">
-                                tidak ada aksi
                             </td>
                             @endif
                             {{-- <td class="text-center">
@@ -90,6 +96,7 @@
                             {{-- {{var_dump($user->employee)}} --}}
                             <td class="text-center">{{ $user->employee->nip }}</td>
                             <td class="text-center">{{ $user->employee->nama }}</td>
+                            <td class="text-center">{{ $user->username }}</td>
                             <td class="text-center">{{ $user->email }}</td>
                             <td class="text-center">{{ $user->roles->first()->name }}</td>
                         </tr>
@@ -111,8 +118,8 @@
     </div>
 </div>
 
-{{-- <script>
-    $(document).on('click', '#delete-form', function(e) {
+<script>
+    $(document).on('click', '#delete-user-form', function(e) {
         var form = this;
         e.preventDefault();
         swal.fire({
@@ -127,17 +134,23 @@
             if (result.isConfirmed) {
                 return form.submit();
             } else if (
-                /* Read more about handling dismissals below */
                 result.dismiss === Swal.DismissReason.cancel
             ) {
                 swal.fire(
                     'Dibatalkan',
-                    'Data anda masih tersimpan :)',
+                    'Data anda masih tersimpan',
                     'error'
                 )
             }
         })
     });
-</script> --}}
+
+    $(document).on("click", ".editUserRoleModal", function () {
+        const id = $(this).data('id');
+        const roleId = $(this).data('roleid');
+        $("#editUserRoleModal .modal-body #id").val(id);
+        $("#editUserRoleModal .modal-body #role-id").val(roleId);
+    });
+</script>
 
 @endsection

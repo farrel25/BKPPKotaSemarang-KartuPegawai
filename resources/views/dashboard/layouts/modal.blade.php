@@ -212,6 +212,55 @@
     </div>
 </section>
 
+{{-- User Modal --}}
+<section id="user">
+    @php
+        $roles = \DB::table('roles')->get();
+    @endphp
+    <div class="modal fade" id="editUserRoleModal" tabindex="-1" role="dialog" aria-labelledby="editUserRoleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editUserRoleModalLabel">Ubah role akun pengguna</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{ route('manajemen-pengguna.akun-pengguna.change-role') }}" method="post">
+                    @csrf
+                    {{-- @method('patch') --}}
+                    <div class="modal-body">
+                        <input type="hidden" name="id" id="id">
+                        <div class="form-group">
+                            <label for="role-id" class="">Role</label>
+                                <select name="role_id" id="role-id" class="mb-2 form-control @error('role_id') is-invalid @enderror">
+                                    <option></option>
+                                    @forelse ($roles as $role)
+                                        <option value="{{$role->id}}" {{ old('role_id') == $role->id ? 'selected' : '' }}>
+                                            {{ $role->name }}
+                                        </option>
+                                    @empty
+                                    <option value="">Role belum tersedia</option>
+                                    @endforelse
+                                </select>
+                                @error('role_id')
+                                    <span class="invalid-feedback mt-2" role="alert">
+                                        <i>{{ $message }}</i>
+                                    </span>
+                                @enderror
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
 {{-- Role Modal --}}
 <section id="Role">
     <div class="modal fade" id="addRoleModal" tabindex="-1" role="dialog" aria-labelledby="addRoleModalLabel"

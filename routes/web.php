@@ -102,6 +102,13 @@ Route::middleware('auth')->group(function () {
         // Akun Pengguna
         Route::prefix('/akun')->group(function () {
             Route::get('', 'UserController@index')->name('manajemen-pengguna.pengguna');
+            // change role
+            Route::post('/ubah-role', 'UserController@changeRole')->name('manajemen-pengguna.akun-pengguna.change-role');
+            // activation
+            Route::patch('/{user}/aktivasi', 'UserController@activation')->name('manajemen-pengguna.akun-pengguna.activation');
+            // delete
+            Route::delete('/{user}/hapus', 'UserController@destroy')->name('manajemen-pengguna.akun-pengguna.destroy');
+            // store
             Route::get('/tambah-pengguna', 'UserController@create')->name('manajemen-pengguna.tambah-pengguna');
         });
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -15,6 +18,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
+
         return view('dashboard.manajemen_pengguna.pengguna.pengguna', compact('users'));
     }
 
@@ -68,9 +72,39 @@ class UserController extends Controller
      * @param  \App\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $User)
+    public function update(Request $request, User $user)
     {
         //
+    }
+
+    public function changeRole(Request $request)
+    {
+        $user = User::findOrFail($request->id);
+        $userOldRole = $user->roles->first();
+        $userNewRole = Role::findOrFail($request->role_id);
+        // dd($userNewRole->name);
+
+        $user->removeRole($userOldRole->name);
+        $user->assignRole($userNewRole->name);
+
+        Alert::success('Berhasil', 'Role akun pengguna berhasil diubah');
+        return back();
+    }
+
+    public function activation(Request $request, User $user)
+    {
+        $attr = $request->validate([
+            'is_active' => 'required|boolean'
+        ]);
+
+        $user->update($attr);
+
+        if ($user->is_active == 1) {
+            Alert::success('Berhasil', 'Akun pengguna berhasil diaktifkan');
+        } else {
+            Alert::success('Berhasil', 'Akun pengguna berhasil dinon-aktifkan');
+        }
+        return back();
     }
 
     /**
@@ -79,8 +113,11 @@ class UserController extends Controller
      * @param  \App\User  $User
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $User)
+    public function destroy(User $user)
     {
-        //
+        $user->delete();
+
+        Alert::success('Berhasil', 'Akun pengguna berhasil dihapus');
+        return back();
     }
 }

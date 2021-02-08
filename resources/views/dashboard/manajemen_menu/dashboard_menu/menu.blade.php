@@ -53,14 +53,14 @@
                                                 data-toggle="tooltip" title="Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-bars"></i>
                                             </a>
-                                            <button type="submit" class="btn btn-focus btn-sm mr-1"
+                                            {{-- <button type="submit" class="btn btn-focus btn-sm mr-1"
                                                 data-toggle="tooltip" title="Non Aktifkan Menu" data-placement="bottom">
                                                 <i class="fas fa-lock-open"></i>
                                             </button>
                                             <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Aktifkan Menu" data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
-                                            </a>
+                                            </a> --}}
                                             <a href="#" class="btn btn-success btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Tambah Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-plus"></i>

@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Alert;
 use App\DashboardMenu;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Permission;
 
 class DashboardMenuController extends Controller
