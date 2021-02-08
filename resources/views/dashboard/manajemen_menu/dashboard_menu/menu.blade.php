@@ -65,7 +65,7 @@
                                                 title="Tambah Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-plus"></i>
                                             </a>
-                                            <span data-toggle="modal" data-target="#editMenuModal">
+                                            <span class="editMenuModal" data-toggle="modal" data-target="#editMenuModal" data-id="{{$menu->id}}" data-name="{{$menu->name}}">
                                                 <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                                     title="Edit Menu" data-placement="bottom">
                                                     <i class="fas fa-edit"></i>
@@ -130,6 +130,13 @@
                 }
             })
         });
+
+    $(document).on("click", ".editMenuModal", function () {
+        const menuId = $(this).data('id');
+        const menuName = $(this).data('name');
+        $("#editMenuModal .modal-body #menu-id").val(menuId);
+        $("#editMenuModal .modal-body #name").val(menuName);
+    });
 
 </script>
 

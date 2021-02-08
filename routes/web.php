@@ -75,6 +75,8 @@ Route::middleware('auth')->group(function () {
             Route::get('', 'DashboardMenuController@index')->name('manajemen-menu.menu');
             // store
             Route::post('/tambah', 'DashboardMenuController@store')->name('manajemen-menu.store');
+            // update
+            Route::patch('/edit', 'DashboardMenuController@update')->name('manajemen-menu.update');
             // delete
             Route::delete('/{dashboard_menu}/hapus', 'DashboardMenuController@destroy')->name('manajemen-menu.destroy');
         });

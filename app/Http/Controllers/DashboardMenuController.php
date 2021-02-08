@@ -45,6 +45,8 @@ class DashboardMenuController extends Controller
         DashboardMenu::create($attr);
         Permission::create($attr);
 
+        Alert::success('Berhasil', 'Menu baru berhasil ditambahkan');
+
         return redirect()->route('manajemen-menu.menu');
     }
 
@@ -77,9 +79,18 @@ class DashboardMenuController extends Controller
      * @param  \App\DashboardMenu  $dashboardMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DashboardMenu $dashboardMenu)
+    public function update(Request $request)
     {
-        //
+        $menu = DashboardMenu::findOrFail($request->menuId);
+
+        $attr = $request->validate([
+            'name' => 'required|string'
+        ]);
+
+        $menu->update($attr);
+
+        Alert::success('Berhasil', 'Menu berhasil diperbarui');
+        return back();
     }
 
     /**

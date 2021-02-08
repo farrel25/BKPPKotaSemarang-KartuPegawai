@@ -40,16 +40,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="form-label" for="#">Menu</label>
-                        <input id="#" type="text" class="form-control" placeholder="Isi Menu ..." />
+                <form action="{{ route('manajemen-menu.update') }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="modal-body">
+                        <input type="hidden" id="menu-id" name="menuId" value=""/>
+                        <div class="form-group">
+                            <label class="form-label" for="#">Menu</label>
+                            <input id="name" name="name" value="" type="text" class="form-control" placeholder="Nama Menu ..." />
+                        </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
-                    <button type="button" class="btn btn-primary">Simpan Perubahan</button>
-                </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
