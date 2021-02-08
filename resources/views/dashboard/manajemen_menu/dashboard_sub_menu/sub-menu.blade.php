@@ -33,43 +33,52 @@
                         <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5">
                             <thead>
                                 <tr>
-                                    <th class=" text-center"><input type="checkbox" onchange="checkAll(this)"
+                                    <th class="text-center"><input type="checkbox" onchange="checkAll(this)"
                                             name="chk[]">
                                     </th>
-                                    <th class=" text-center">No.</th>
-                                    <th class=" text-center">Aksi</th>
-                                    <th class=" text-center">Sub Menu</th>
-                                    <th class=" text-center">Menu Parent</th>
-                                    <th class=" text-center">URL Path</th>
-                                    <th class=" text-center">Icon</th>
+                                    <th class="text-center">No.</th>
+                                    <th class="text-center">Aksi</th>
+                                    <th class="text-center">Sub Menu</th>
+                                    <th class="text-center">Menu Parent</th>
+                                    <th class="text-center">URL Path</th>
+                                    <th class="text-center">Icon</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($subMenus as $number => $subMenu)
                                 <tr>
-                                    <td class=" text-center"><input type="checkbox" name="chkbox[]" value="#">
+                                    <td class="text-center"><input type="checkbox" name="chkbox[]" value="#">
                                     </td>
-                                    <td class=" text-center">{{ $number + $subMenus->firstItem() }}</td>
-                                    <td class=" text-center">
+                                    <td class="text-center">{{ $number + $subMenus->firstItem() }}</td>
+                                    <td class="text-center">
                                         <div class="d-flex justify-content-center">
-                                            @if ($subMenu->is_active == 1)
-                                            <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Non Aktifkan Sub Menu" data-placement="bottom">
-                                                <i class="fas fa-lock-open"></i>
-                                            </a>
-                                            @else
-                                            <a href="#" class="btn btn-focus btn-sm mr-1 " data-toggle="tooltip"
-                                                title="Aktifkan Sub Menu" data-placement="bottom">
-                                                <i class="fas fa-lock"></i>
-                                            </a>
-                                            @endif
-                                            <span data-toggle="modal" data-target="#editSubMenuModal">
-                                                <a href="#" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
+                                            <form method="POST" action="{{ route('manajemen-menu.sub-menu.activation', $subMenu->id) }}">
+                                                @csrf
+                                                @method('patch')
+                                                <input type="hidden" name="is_active" value="{{ $subMenu->is_active == 1 ? 0:1 }}">
+                                                <button type="submit" class="btn btn-focus btn-sm mr-1"
+                                                    data-toggle="tooltip" title="{{ $subMenu->is_active == 1 ? 'Non Aktifkan Sub Menu':'Aktifkan Sub Menu' }}" data-placement="bottom">
+                                                    <i class="fas {{ $subMenu->is_active == 1 ? 'fa-lock-open':'fa-lock' }}"></i>
+                                                </button>
+                                            </form>
+                                            <span
+                                                class="editSubMenuModal"
+                                                data-toggle="modal"
+                                                data-target="#editSubMenuModal"
+                                                data-id="{{ $subMenu->id }}"
+                                                data-name="{{ $subMenu->name }}"
+                                                data-menuid="{{ $subMenu->dashboard_menu_id }}"
+                                                data-urlpath="{{ $subMenu->url_path }}"
+                                                data-icon="{{ $subMenu->icon }}"
+                                            >
+                                                <button type="button" class="btn btn-primary btn-sm mr-1 " data-toggle="tooltip"
                                                     title="Edit Sub Menu" data-placement="bottom">
                                                     <i class="fas fa-edit"></i>
-                                                </a>
+                                                </button>
                                             </span>
-                                            <form id="delete-form" action="#" method="post">
+                                            <form id="delete-submenu-form" action="{{ route('manajemen-menu.sub-menu.destroy', $subMenu->id) }}" method="post">
+                                                @csrf
+                                                @method('delete')
                                                 <button type="submit" class="btn btn-danger btn-sm mr-1"
                                                     data-toggle="tooltip" title="Hapus Sub Menu"
                                                     data-placement="bottom">
@@ -78,10 +87,10 @@
                                             </form>
                                         </div>
                                     </td>
-                                    <td class=" text-center">{{ $subMenu->name }}</td>
-                                    <td class=" text-center">{{ $subMenu->dashboardMenu->name }}</td>
-                                    <td class=" text-center">{{ $subMenu->url_path }}</td>
-                                    <td class=" text-center">{{ $subMenu->icon }}</td>
+                                    <td class="text-center">{{ $subMenu->name }}</td>
+                                    <td class="text-center">{{ $subMenu->dashboardMenu->name }}</td>
+                                    <td class="text-center">{{ $subMenu->url_path }}</td>
+                                    <td class="text-center">{{ $subMenu->icon }}</td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -102,5 +111,46 @@
     </div>
 
 </div>
+
+<script>
+    $(document).on("click", ".editSubMenuModal", function () {
+        const id = $(this).data('id');
+        const name = $(this).data('name');
+        const menuId = $(this).data('menuid');
+        const urlPath = $(this).data('urlpath');
+        const icon = $(this).data('icon');
+        $("#editSubMenuModal .modal-body #id").val(id);
+        $("#editSubMenuModal .modal-body #name").val(name);
+        $("#editSubMenuModal .modal-body #menu-id").val(menuId);
+        $("#editSubMenuModal .modal-body #urlpath").val(urlPath);
+        $("#editSubMenuModal .modal-body #icon").val(icon);
+    });
+
+    $(document).on('click', '#delete-submenu-form', function(e) {
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data Tidak Akan Kembali ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan',
+                    'error'
+                )
+            }
+        })
+    });
+</script>
 
 @endsection

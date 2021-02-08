@@ -105,31 +105,31 @@
 
 <script>
     $(document).on('click', '#delete-form', function(e) {
-            var form = this;
-            e.preventDefault();
-            swal.fire({
-                title: 'Hapus Data Ini?',
-                text: "Data Tidak Akan Kembali ",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonText: 'Iya, hapus!',
-                cancelButtonText: 'Tidak, batalkan!',
-                reverseButtons: true
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    return form.submit();
-                } else if (
-                    /* Read more about handling dismissals below */
-                    result.dismiss === Swal.DismissReason.cancel
-                ) {
-                    swal.fire(
-                        'Dibatalkan',
-                        'Data anda masih tersimpan :)',
-                        'error'
-                    )
-                }
-            })
-        });
+        var form = this;
+        e.preventDefault();
+        swal.fire({
+            title: 'Hapus Data Ini?',
+            text: "Data Tidak Akan Kembali ",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Iya, hapus!',
+            cancelButtonText: 'Tidak, batalkan!',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                return form.submit();
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swal.fire(
+                    'Dibatalkan',
+                    'Data anda masih tersimpan',
+                    'error'
+                )
+            }
+        })
+    });
 
     $(document).on("click", ".editMenuModal", function () {
         const menuId = $(this).data('id');

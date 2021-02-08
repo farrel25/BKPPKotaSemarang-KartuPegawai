@@ -17,9 +17,8 @@ class DashboardSubMenuController extends Controller
      */
     public function index()
     {
-        $menus = DashboardMenu::get();
         $subMenus = DashboardSubMenu::paginate(10);
-        return view('dashboard.manajemen_menu.dashboard_sub_menu.sub-menu', compact('menus', 'subMenus'));
+        return view('dashboard.manajemen_menu.dashboard_sub_menu.sub-menu', compact('subMenus'));
     }
 
     /**
@@ -95,9 +94,49 @@ class DashboardSubMenuController extends Controller
      * @param  \App\DashboardSubMenu  $dashboardSubMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DashboardSubMenu $dashboardSubMenu)
+    public function update(Request $request)
     {
-        //
+        $submenu = DashboardSubMenu::findOrFail($request->id);
+
+        $validator = Validator::make($request->all(), [
+            'menuId' => 'required|numeric',
+            'name' => 'required|string',
+            'url_path' => 'required|string',
+            'icon' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            Alert::error('Gagal', 'Terdapat kesalahan input, silahkan coba lagi');
+            return back()
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $attr['dashboard_menu_id'] = $request->menuId;
+        $attr['name'] = $request->name;
+        $attr['url_path'] = $request->url_path;
+        $attr['icon'] = $request->icon;
+
+        $submenu->update($attr);
+
+        Alert::success('Berhasil', 'SubMenu berhasil diperbarui');
+        return back();
+    }
+
+    public function activation(Request $request, DashboardSubMenu $dashboardSubMenu)
+    {
+        $attr = $request->validate([
+            'is_active' => 'required|boolean'
+        ]);
+
+        $dashboardSubMenu->update($attr);
+
+        if ($dashboardSubMenu->is_active == 1) {
+            Alert::success('Berhasil', 'SubMenu berhasil diaktifkan');
+        } else {
+            Alert::success('Berhasil', 'SubMenu berhasil dinon-aktifkan');
+        }
+        return back();
     }
 
     /**
@@ -108,6 +147,9 @@ class DashboardSubMenuController extends Controller
      */
     public function destroy(DashboardSubMenu $dashboardSubMenu)
     {
-        //
+        $dashboardSubMenu->delete();
+
+        Alert::success('Berhasil', 'SubMenu berhasil dihapus');
+        return back();
     }
 }

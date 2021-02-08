@@ -86,6 +86,12 @@ Route::middleware('auth')->group(function () {
             Route::get('', 'DashboardSubMenuController@index')->name('manajemen-menu.sub-menu');
             // store
             Route::post('/tambah', 'DashboardSubMenuController@store')->name('manajemen-menu.sub-menu.store');
+            // update
+            Route::patch('/edit', 'DashboardSubMenuController@update')->name('manajemen-menu.sub-menu.update');
+            // activation
+            Route::patch('/{dashboard_sub_menu}/aktivasi', 'DashboardSubMenuController@activation')->name('manajemen-menu.sub-menu.activation');
+            // delete
+            Route::delete('/{dashboard_sub_menu}/hapus', 'DashboardSubMenuController@destroy')->name('manajemen-menu.sub-menu.destroy');
         });
     });
 
