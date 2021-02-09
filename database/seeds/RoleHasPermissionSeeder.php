@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class RoleHasPermissionSeeder extends Seeder
 {
@@ -15,7 +16,7 @@ class RoleHasPermissionSeeder extends Seeder
         $roleIds = [1, 1, 1, 1, 1];
 
         for ($i = 0; $i < count($permissionIds); $i++) {
-            \DB::table('role_has_permissions')->insert([
+            DB::table('role_has_permissions')->insert([
                 'permission_id' => $permissionIds[$i],
                 'role_id' => $roleIds[$i]
             ]);
