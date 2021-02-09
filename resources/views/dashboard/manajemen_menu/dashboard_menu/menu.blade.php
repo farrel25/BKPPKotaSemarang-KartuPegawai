@@ -49,7 +49,7 @@
                                     <td class=" text-center">{{ ++$number }}</td>
                                     <td class="text-center">
                                         <div class="d-flex justify-content-center">
-                                            <a href="#" class="btn btn-alternate btn-sm mr-1 text-white"
+                                            <a href="{{ route('manajemen-menu.sub-menu') }}" class="btn btn-alternate btn-sm mr-1 text-white"
                                                 data-toggle="tooltip" title="Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-bars"></i>
                                             </a>
@@ -61,7 +61,7 @@
                                                 title="Aktifkan Menu" data-placement="bottom">
                                                 <i class="fas fa-lock"></i>
                                             </a> --}}
-                                            <a href="#" class="btn btn-success btn-sm mr-1 " data-toggle="tooltip"
+                                            <a href="{{ route('manajemen-menu.sub-menu') }}" class="btn btn-success btn-sm mr-1 " data-toggle="tooltip"
                                                 title="Tambah Sub Menu " data-placement="bottom">
                                                 <i class="fas fa-plus"></i>
                                             </a>

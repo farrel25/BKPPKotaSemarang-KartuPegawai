@@ -76,12 +76,12 @@
                                             <i class="fas fa-print"></i>
                                         </button>
                                     </form>
-                                    <form id="delete-form" action="#" method="post">
+                                    {{-- <form id="delete-proposal-form" action="#" method="post">
                                         <button type="submit" class="btn btn-danger btn-sm mr-1" data-toggle="tooltip"
                                             title="Hapus Kartu" data-placement="bottom">
                                             <i class="fas fa-trash-alt"></i>
                                         </button>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </td>
                             <td class=" text-center">
