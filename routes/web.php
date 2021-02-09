@@ -116,11 +116,13 @@ Route::middleware('auth')->group(function () {
         Route::prefix('/role-dan-hak-akses')->group(function () {
             Route::get('', 'UserRoleAccessController@index')->name('manajemen-pengguna.role-dan-hak-akses');
             // Store Role
-            Route::post('/tambah-role', 'UserRoleAccessController@store')->name('manajemen-pengguna.role-dan-hak-akses.store-role');
+            Route::post('/tambah-role', 'UserRoleAccessController@storeRole')->name('manajemen-pengguna.role-dan-hak-akses.store-role');
             // Update Role
             Route::patch('/tambah-role', 'UserRoleAccessController@update')->name('manajemen-pengguna.role-dan-hak-akses.update-role');
             // Destroy Role
             Route::delete('/{role}/hapus-role', 'UserRoleAccessController@destroyRole')->name('manajemen-pengguna.role-dan-hak-akses.destroy-role');
+            // Update Role Permission
+            Route::patch('/{role}/role-permission', 'UserRoleAccessController@updateRolePermission')->name('manajemen-pengguna.role-dan-hak-akses.update-role-permission');
         });
     });
 });

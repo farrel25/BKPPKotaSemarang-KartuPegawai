@@ -150,34 +150,38 @@
                 <div class="card-header">
                     Hak Akses {{$role->name}}
                 </div>
-                <div class="table-responsive ">
-                    <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
-                        <thead>
-                            <tr>
-                                <th class=" text-center">No.</th>
-                                <th class=" text-center">Menu</th>
-                                <th class=" text-center">Hak Akses</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @php
-                            $checkPermission = \DB::table('role_has_permissions')->where('role_id', $role->id)->pluck('permission_id')->toArray();
-                            // var_dump($checkPermission);
-                            @endphp
-                            @foreach ($permissions as $number => $permission)
-                            <tr>
-                                <td class=" text-center">{{ $number + 1 }}</td>
-                                <td class=" text-center">{{ $permission->name }}</td>
-                                <td class=" text-center"><input type="checkbox" value="{{ $permission->id }}" name="permission_id[]" {{ in_array($permission->id, $checkPermission) ? 'checked':'' }}>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary  ml-auto">Simpan</a>
-                </div>
+                <form action="{{ route('manajemen-pengguna.role-dan-hak-akses.update-role-permission', $role->id) }}" method="post">
+                    @csrf
+                    @method('patch')
+                    <div class="table-responsive ">
+                        <table class="align-middle mb-0 table table-borderless table-striped table-hover p-5 ">
+                            <thead>
+                                <tr>
+                                    <th class=" text-center">No.</th>
+                                    <th class=" text-center">Menu</th>
+                                    <th class=" text-center">Hak Akses</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @php
+                                $checkPermission = \DB::table('role_has_permissions')->where('role_id', $role->id)->pluck('permission_id')->toArray();
+                                // var_dump($checkPermission);
+                                @endphp
+                                @foreach ($permissions as $number => $permission)
+                                <tr>
+                                    <td class=" text-center">{{ $number + 1 }}</td>
+                                    <td class=" text-center">{{ $permission->name }}</td>
+                                    <td class=" text-center"><input type="checkbox" value="{{ $permission->id }}" name="permission_id[]" {{ in_array($permission->id, $checkPermission) ? 'checked':'' }}>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary  ml-auto">Simpan</button>
+                    </div>
+                </form>
             </div>
             @endforeach
             {{-- <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">

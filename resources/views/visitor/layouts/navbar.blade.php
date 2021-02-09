@@ -26,9 +26,9 @@
                 <li class="drop-down ml-auto">
                     <a>Hai, {{ Auth::user()->username }}</a>
                     <ul>
-                        @role('Administrator')
+                        @can('Menu Utama')
                         <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
-                        @endrole
+                        @endcan
                         {{-- @role('Pegawai') --}}
                         @if (!request()->is('notification'))
                         <li><a href="{{ route('notification') }}">Pemberitahuan Kartu</a></li>

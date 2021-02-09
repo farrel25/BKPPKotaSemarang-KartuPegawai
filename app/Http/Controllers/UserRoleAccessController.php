@@ -39,7 +39,7 @@ class UserRoleAccessController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function storeRole(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255'
@@ -109,6 +109,15 @@ class UserRoleAccessController extends Controller
         $role->update($attr);
 
         Alert::success('Berhasil', 'Role berhasil diperbarui');
+        return back();
+    }
+
+    public function updateRolePermission(Request $request, Role $role)
+    {
+        // $role->permissions()->sync($request->permission_id);
+        $role->syncPermissions($request->permission_id);
+
+        Alert::success('Berhasil', 'Hak akses berhasil diperbarui');
         return back();
     }
 
